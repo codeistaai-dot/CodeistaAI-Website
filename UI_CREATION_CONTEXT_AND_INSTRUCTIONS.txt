@@ -1,0 +1,287 @@
+C2C — GENERAL UI CREATION CONTEXT AND INSTRUCTIONS
+
+PURPOSE
+
+Use this file when creating a new client landing-page UI prototype for C2C. It is client-neutral and intended for future projects.
+
+Treat every client as a completely separate project. Never reuse another client’s name, branding, logo, images, copy, contact details, credentials, repository information, API assumptions, testimonials, business claims, or assets unless the user explicitly provides them again for the current client.
+
+
+1. CONFIRM THE DELIVERABLE
+
+Before working, identify whether the request is:
+
+- A standalone HTML UI prototype
+- A production Next.js implementation
+- A faithful migration
+- A redesign inspired by a reference
+- A review or improvement of an existing UI
+
+Standalone HTML is appropriate when the user asks for a prototype. Production websites should normally use Next.js App Router, TypeScript, Server Components by default, and Client Components only when interactions require them.
+
+
+2. COLLECT THE CLIENT REQUIREMENTS
+
+Identify or request the information that materially affects the design:
+
+- Client or business name
+- Main offer or services
+- Target audience
+- Primary conversion goal
+- Approved content
+- Reference websites
+- Logo and brand assets
+- Preferred colours and fonts
+- Required sections and pages
+- Form fields
+- Contact details
+- Service locations
+- Backend or API status
+- Legal links and company information
+
+List missing information clearly. Use visible placeholders instead of inventing phone numbers, email addresses, prices, statistics, certifications, service areas, testimonials, partnerships, awards, availability, or medical claims.
+
+
+3. REFERENCE-WEBSITE RULES
+
+When a reference website is supplied:
+
+- Study its live information hierarchy, user journey, CTA placement and conversion flow.
+- Use the reference only for useful structural ideas unless a faithful migration is explicitly requested and authorized.
+- Create a distinct layout, colour system, typography, imagery, spacing and visual personality.
+- Do not reuse the reference logo, images, testimonials, proprietary copy or business claims.
+- Rewrite supporting content while preserving only the intended meaning.
+- Avoid creating a near-identical clone.
+- Clearly report if the live reference could not be loaded or fully inspected.
+
+
+4. DESIGN DIRECTION
+
+Create a coherent visual system before styling individual sections:
+
+- One primary dark colour
+- One primary brand colour
+- One warm accent colour
+- One light background colour
+- Neutral text and border colours
+- One display font and one readable body font
+- Consistent corner radii, shadows, spacing and button styles
+
+The design should feel premium, distinctive and appropriate for the client’s industry. Avoid generic template styling and excessive gradients, glass effects or decorative clutter.
+
+Use semantic HTML landmarks and a correct heading hierarchy. The page should normally include only the sections needed for the client’s conversion flow, such as:
+
+1. Header and navigation
+2. Hero with primary CTA
+3. Trust or reassurance points
+4. Core services or offer
+5. Process or how-it-works section
+6. Brand approach or benefits
+7. Social proof only when genuine content is supplied
+8. FAQs
+9. Lead form or final CTA
+10. Footer
+
+
+5. LOGOS AND BRAND ASSETS
+
+If a logo is not available, use a tasteful text wordmark or clearly labelled temporary placeholder.
+
+When logo concepts are requested:
+
+- Create meaningfully different directions, not minor variations.
+- Keep the exact brand spelling.
+- Present concepts on a clean white background when requested.
+- After selection, prepare a production-ready SVG whenever possible.
+- Also create an optimized WebP or PNG fallback when needed.
+- Check readability at desktop-header and mobile-header sizes.
+
+Never distort, stretch or crop a logo. Use object-fit: contain and preserve its aspect ratio.
+
+
+6. IMAGE RULES
+
+- Use original, licensed or user-approved images.
+- Never copy images from a reference website without explicit authorization.
+- Keep imagery consistent in subject, lighting, colour palette and visual style.
+- Use relevant people, environments and actions instead of generic portraits.
+- Write descriptive alt text that explains the image’s purpose.
+- Decorative images should use empty alt text when appropriate.
+- Optimize all final website images as WebP unless another format is technically required.
+- Use sensible dimensions and compression; do not ship unnecessarily large files.
+- Verify that every image path works when opening the standalone HTML directly.
+
+
+7. RESPONSIVE AND MOBILE REQUIREMENTS
+
+Test at minimum:
+
+- 375px width
+- 390px width
+- 414px width
+- A normal tablet width
+- A normal desktop width
+
+Mobile content should be centred and balanced unless left alignment materially improves readability.
+
+Check:
+
+- Headings and paragraphs
+- Eyebrow labels
+- CTA buttons and button groups
+- Cards and grids
+- Images and badges
+- Icons with text
+- Navigation and mobile menu
+- Forms and validation errors
+- FAQs
+- Footer groups
+
+Forms may remain internally left-aligned on mobile for easier reading.
+
+Required checks:
+
+- document.documentElement.scrollWidth must not exceed document.documentElement.clientWidth at 375px, 390px or 414px.
+- Do not hide overflow as the only fix; identify the element causing overflow.
+- Centred max-width text must use automatic left and right margins.
+- Centred flex children require justify-content: center.
+- Mobile menus must be opaque and correctly layered.
+- Lock background scrolling while a full-screen menu or modal is open.
+- Escape must close menus and modals.
+
+
+8. ACCESSIBILITY
+
+Implement:
+
+- Semantic header, navigation, main, section and footer landmarks
+- One clear H1 followed by logical heading levels
+- Descriptive link and button labels
+- Keyboard-accessible controls
+- Visible focus states
+- Sufficient colour contrast
+- Accessible form labels
+- aria-expanded and aria-controls for expandable navigation
+- aria-invalid and aria-describedby for invalid fields
+- Error messages that do not rely on colour alone
+- Reduced-motion support with prefers-reduced-motion
+- Descriptive alt text for meaningful images
+
+If using a modal, include focus trapping, Escape-key closing and focus restoration.
+
+
+9. FORM VALIDATION
+
+Form validation is high priority.
+
+Required behaviour:
+
+- Clearly mark required fields.
+- Trim leading and trailing whitespace.
+- Reject empty and spaces-only required values.
+- Use sensible minimum and maximum lengths.
+- Support valid local-language letters in names and cities when appropriate.
+- Validate phone numbers using the intended country’s rules.
+- Validate email addresses when an email field exists.
+- Validate required selections.
+- Show short, specific errors below the relevant field.
+- Set aria-invalid and connect errors using aria-describedby.
+- Focus the first invalid field after a failed submission.
+- Clear an error after the field becomes valid.
+- Preserve entered values after failed validation.
+- Prevent duplicate submissions.
+- Include a hidden honeypot for basic spam protection.
+- Never log personal information.
+
+If no backend or API exists:
+
+- Do not invent an endpoint, payload or response.
+- Do not fake a production success state.
+- Clearly label the form as UI/demo-only.
+- State that no information is sent or saved.
+- A local validation-success message must explicitly say it is only a demo.
+
+When a real API exists, show success only after the API confirms success. Server-side validation and future rate limiting must also be supported in production.
+
+
+10. INTERACTIONS AND ANIMATION
+
+Use subtle, professional interactions:
+
+- Gentle scroll reveals
+- Small hover lifts
+- Button hover and press feedback
+- Smooth FAQ expansion
+- Smooth mobile-menu transitions
+
+Avoid bouncing, spinning, excessive parallax or distracting motion. Respect prefers-reduced-motion.
+
+
+11. STANDALONE HTML PACKAGING
+
+For a final standalone HTML delivery, create one clearly named project folder containing:
+
+- index.html
+- assets/
+- Only the assets actually used by the page
+
+Requirements:
+
+- Use relative asset paths.
+- The page must work when index.html is opened directly.
+- Prefer WebP for all raster website images.
+- Do not include unused drafts, rejected logos or source-generation files.
+- Do not include secrets, credentials or environment files.
+- Give the folder a clear client name.
+
+Before delivery, verify every local src and href path used by the page.
+
+
+12. FINAL VERIFICATION
+
+Before declaring the UI complete, verify:
+
+- Correct client name and approved services
+- No previous-client branding or assets
+- No copied reference-site images or claims
+- Correct logo and logo proportions
+- All images load and use the intended format
+- No broken links caused by packaging
+- Responsive layout at 375px, 390px and 414px
+- No horizontal overflow
+- Mobile content is centred and balanced
+- Mobile menu works and locks background scrolling
+- FAQs are keyboard accessible
+- Empty, spaces-only and invalid form submissions fail correctly
+- First invalid field receives focus
+- Corrected fields clear their errors
+- Valid demo submission clearly says no data was sent
+- No browser-console errors
+- Reduced-motion behaviour works
+
+
+13. FINAL HANDOFF REPORT
+
+Report concisely:
+
+- Main file and folder location
+- Sections created
+- Logo and image status
+- Image formats
+- Backend/API status
+- Form-validation rules
+- Mobile widths tested
+- Overflow result
+- Console-error result
+- Remaining placeholders or details awaiting client confirmation
+
+
+IMPORTANT C2C SAFETY RULES
+
+- Never mix information between clients.
+- Never invent medical, legal, financial or performance claims.
+- Never expose credentials or secrets.
+- Never claim a form submitted data when no backend exists.
+- Do not publish or deploy without explicit approval.
+- Do not run git push; commit locally only when repository work is requested.
+
