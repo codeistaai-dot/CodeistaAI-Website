@@ -5,7 +5,7 @@ import { useFormModal } from '@/context/FormModalContext';
 import EnquiryFormCard from './EnquiryFormCard';
 
 export default function EnquiryDialogModal() {
-  const { isModalOpen, closeModal } = useFormModal();
+  const { isModalOpen, closeModal, openerRef, scrollPosRef } = useFormModal();
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function EnquiryDialogModal() {
       if (!dialog.open) {
         dialog.showModal();
         dialog.scrollTop = 0;
+        document.body.style.overflowY = 'hidden';
         const closeBtn = dialog.querySelector<HTMLButtonElement>('.dialog-close');
         closeBtn?.focus({ preventScroll: true });
       }
@@ -30,10 +31,19 @@ export default function EnquiryDialogModal() {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
+    const handleClose = () => {
+      closeModal();
+      document.body.style.overflowY = '';
+      window.scrollTo({ top: scrollPosRef.current, behavior: 'instant' as ScrollBehavior });
+      if (openerRef.current) {
+        openerRef.current.focus({ preventScroll: true });
+      }
+    };
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault();
-        closeModal();
+        dialog.close();
       }
 
       if (e.key === 'Tab') {
@@ -67,26 +77,28 @@ export default function EnquiryDialogModal() {
           e.clientY < box.top ||
           e.clientY > box.bottom
         ) {
-          closeModal();
+          dialog.close();
         }
       }
     };
 
     const handleCancel = (e: Event) => {
       e.preventDefault();
-      closeModal();
+      dialog.close();
     };
 
+    dialog.addEventListener('close', handleClose);
     dialog.addEventListener('keydown', handleKeyDown);
     dialog.addEventListener('click', handleClick);
     dialog.addEventListener('cancel', handleCancel);
 
     return () => {
+      dialog.removeEventListener('close', handleClose);
       dialog.removeEventListener('keydown', handleKeyDown);
       dialog.removeEventListener('click', handleClick);
       dialog.removeEventListener('cancel', handleCancel);
     };
-  }, [closeModal]);
+  }, [closeModal, openerRef, scrollPosRef]);
 
   return (
     <dialog
@@ -99,7 +111,13 @@ export default function EnquiryDialogModal() {
         type="button"
         className="dialog-close"
         aria-label="Close enquiry form"
-        onClick={closeModal}
+        onClick={() => {
+          if (dialogRef.current?.open) {
+            dialogRef.current.close();
+          } else {
+            closeModal();
+          }
+        }}
       >
         ×
       </button>

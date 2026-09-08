@@ -24,13 +24,14 @@ interface FormModalContextType {
   isValidated: boolean;
   isModalOpen: boolean;
   activeInstance: 'inline' | 'modal' | null;
+  openerRef: React.MutableRefObject<HTMLElement | null>;
+  scrollPosRef: React.MutableRefObject<number>;
   openModal: (opener?: HTMLElement | null) => void;
   closeModal: () => void;
   handleInputChange: (field: keyof FormValues, value: string) => void;
   handleInputBlur: (field: keyof FormErrors, instance: 'inline' | 'modal') => void;
   handleSubmit: (e: React.FormEvent, instance: 'inline' | 'modal') => void;
   handleReset: (instance: 'inline' | 'modal') => void;
-  registerOpener: (opener: HTMLElement | null) => void;
 }
 
 const initialValues: FormValues = {
@@ -109,28 +110,19 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
   const openerRef = useRef<HTMLElement | null>(null);
   const scrollPosRef = useRef<number>(0);
 
-  const registerOpener = useCallback((opener: HTMLElement | null) => {
-    openerRef.current = opener;
-  }, []);
-
   const openModal = useCallback((opener?: HTMLElement | null) => {
     if (typeof window !== 'undefined') {
       scrollPosRef.current = window.scrollY;
-      if (opener) openerRef.current = opener;
+      if (opener) {
+        openerRef.current = opener;
+      }
       setIsModalOpen(true);
       document.body.style.overflowY = 'hidden';
     }
   }, []);
 
   const closeModal = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      setIsModalOpen(false);
-      document.body.style.overflowY = '';
-      window.scrollTo({ top: scrollPosRef.current, behavior: 'instant' as ScrollBehavior });
-      if (openerRef.current) {
-        openerRef.current.focus({ preventScroll: true });
-      }
-    }
+    setIsModalOpen(false);
   }, []);
 
   const handleInputChange = useCallback((field: keyof FormValues, value: string) => {
@@ -264,13 +256,14 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
         isValidated,
         isModalOpen,
         activeInstance,
+        openerRef,
+        scrollPosRef,
         openModal,
         closeModal,
         handleInputChange,
         handleInputBlur,
         handleSubmit,
         handleReset,
-        registerOpener,
       }}
     >
       {children}

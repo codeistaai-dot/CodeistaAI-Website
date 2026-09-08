@@ -35,7 +35,7 @@ export default function HeaderNav() {
     e.preventDefault();
     const isMobile = window.matchMedia('(max-width: 800px)').matches;
     const opener = isMobile ? menuButtonRef.current : e.currentTarget;
-    closeMenu();
+    setIsMenuOpen(false);
     openModal(opener);
   };
 
