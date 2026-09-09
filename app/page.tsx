@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import HeaderNav from '@/components/HeaderNav';
 import EnquiryCTA from '@/components/EnquiryCTA';
 import EnquiryFormCard from '@/components/EnquiryFormCard';
@@ -589,11 +590,14 @@ export default function HomePage() {
 
       <footer className="dark">
         <div className="wrap footer-main">
-          <a className="wordmark" href="#" aria-label="CodeistaAI home">
-            codeista<span>AI</span>
-            <span className="brand-dot" aria-hidden="true">
-              .
-            </span>
+          <a className="wordmark brand-link" href="#" aria-label="CodeistaAI home">
+            <Image
+              src="/logo-dark.svg"
+              alt="CodeistaAI"
+              className="brand-logo"
+              width={168}
+              height={26}
+            />
           </a>
           <p>A new chapter, written in Python.</p>
           <a className="text-link" href="#main">

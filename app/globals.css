@@ -287,6 +287,28 @@ p {
   color: var(--lime);
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  min-height: 44px;
+  line-height: 1;
+}
+
+.brand-logo {
+  height: 28px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.brand-link:hover .brand-logo {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -1265,6 +1287,10 @@ footer {
   }
   .wordmark {
     font-size: 1.55rem;
+  }
+  .brand-logo {
+    height: 24px;
+    max-width: 160px;
   }
   .hero {
     padding-top: 42px;

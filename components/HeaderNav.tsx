@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { useFormModal } from '@/context/FormModalContext';
 
 export default function HeaderNav() {
@@ -85,11 +86,15 @@ export default function HeaderNav() {
 
   return (
     <div className="wrap header-inner" ref={headerInnerRef}>
-      <a className="wordmark" href="#" aria-label="CodeistaAI home">
-        codeista<span>AI</span>
-        <span className="brand-dot" aria-hidden="true">
-          .
-        </span>
+      <a className="wordmark brand-link" href="#" aria-label="CodeistaAI home">
+        <Image
+          src="/logo-dark.svg"
+          alt="CodeistaAI"
+          className="brand-logo"
+          width={168}
+          height={26}
+          priority
+        />
       </a>
 
       <button
