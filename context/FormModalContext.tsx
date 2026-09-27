@@ -1,6 +1,11 @@
 'use client';
 
 import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
+import {
+  captureUrlAttribution,
+  getStoredAttribution,
+  clearStoredAttribution,
+} from '@/utils/attribution';
 
 export interface FormValues {
   fullName: string;
@@ -21,7 +26,8 @@ interface FormModalContextType {
   values: FormValues;
   errors: FormErrors;
   status: string;
-  isValidated: boolean;
+  isSubmitting: boolean;
+  isSubmitted: boolean;
   isModalOpen: boolean;
   activeInstance: 'inline' | 'modal' | null;
   openerRef: React.MutableRefObject<HTMLElement | null>;
@@ -30,7 +36,7 @@ interface FormModalContextType {
   closeModal: () => void;
   handleInputChange: (field: keyof FormValues, value: string) => void;
   handleInputBlur: (field: keyof FormErrors, instance: 'inline' | 'modal') => void;
-  handleSubmit: (e: React.FormEvent, instance: 'inline' | 'modal') => void;
+  handleSubmit: (e: React.FormEvent, instance: 'inline' | 'modal') => Promise<void>;
   handleReset: (instance: 'inline' | 'modal') => void;
 }
 
@@ -49,51 +55,59 @@ const initialErrors: FormErrors = {
   experience: '',
 };
 
-function getFullNameError(val: string): string {
-  const value = val.trim();
-  if (!value) return 'Enter a name; spaces alone are not valid.';
-  if ([...value].length < 2 || value.length > 80) return 'Use a name between 2 and 80 characters.';
-  if (!/^[\p{L}\p{M}][\p{L}\p{M} .’'\-]*$/u.test(value)) return 'Use letters, spaces, apostrophes, periods, or hyphens.';
-  if ((value.match(/\p{L}/gu) || []).length < 2) return 'Include at least two letters in the name.';
+export function normalizeIndiaPhone(raw: string): string {
+  if (!raw) return '';
+  let digits = raw.replace(/\D/g, '');
+  if (digits.startsWith('91') && digits.length === 12) {
+    digits = digits.slice(2);
+  } else if (digits.startsWith('0') && digits.length === 11) {
+    digits = digits.slice(1);
+  }
+  return digits;
+}
+
+export function isValidUnicodeName(name: string): boolean {
+  const trimmed = (name || '').trim();
+  if (trimmed.length < 2 || trimmed.length > 60) return false;
+  if (!/^[\p{L}\p{M}][\p{L}\p{M} .’'\-]*$/u.test(trimmed)) return false;
+  const letters = trimmed.match(/\p{L}/gu) || [];
+  return letters.length >= 2;
+}
+
+export function getFullNameError(val: string): string {
+  const value = (val || '').trim();
+  if (!value) return 'Enter your name using 2-60 letters.';
+  if (value.length < 2 || value.length > 60) return 'Enter your name using 2-60 letters.';
+  if (!isValidUnicodeName(value)) return 'Enter your name using 2-60 letters.';
   return '';
 }
 
-function getEmailError(val: string): string {
-  const value = val.trim();
-  if (!value) return 'Enter a sample email address.';
+export function getEmailError(val: string): string {
+  const value = (val || '').trim();
+  if (!value) return 'Enter a valid email address.';
   if (value.length > 254) return 'Use an email address with at most 254 characters.';
-  const parts = value.split('@');
-  const local = parts[0];
-  const domain = parts[1] || '';
-  if (
-    parts.length !== 2 ||
-    local.length > 64 ||
-    !/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(local) ||
-    local.startsWith('.') ||
-    local.endsWith('.') ||
-    local.includes('..') ||
-    !domain.includes('.') ||
-    domain.split('.').some(label => !/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?$/.test(label)) ||
-    !/^[A-Za-z]{2,63}$/.test(domain.split('.').pop() || '')
-  ) {
+  const emailRegex = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
+  if (!emailRegex.test(value)) {
     return 'Enter a valid email, such as learner@example.com.';
   }
   return '';
 }
 
-function getMobileError(val: string): string {
-  const value = val.trim();
-  if (!value) return 'Enter a sample mobile number with its country code.';
-  if (!/^\+[1-9][0-9 ()-]*$/.test(value)) return 'Start with + and a country code; use digits, spaces, parentheses, or hyphens.';
-  const digits = value.replace(/\D/g, '');
-  if (digits.length < 8 || digits.length > 15) return 'Use 8–15 digits including the country code.';
-  if (/^(\d)\1+$/.test(digits)) return 'Enter a valid-looking sample mobile number.';
+export function getMobileError(val: string): string {
+  const value = (val || '').trim();
+  if (!value) return 'Enter a valid 10-digit Indian mobile number beginning with 6-9.';
+  const normalized = normalizeIndiaPhone(value);
+  if (!/^[6-9]\d{9}$/.test(normalized)) {
+    return 'Enter a valid 10-digit Indian mobile number beginning with 6-9.';
+  }
   return '';
 }
 
-function getExperienceError(val: string): string {
-  const value = val.trim();
-  if (!['new', 'basics', 'practice'].includes(value)) return 'Choose your Python starting point.';
+export function getExperienceError(val: string): string {
+  const value = (val || '').trim();
+  if (!['new', 'basics', 'practice'].includes(value)) {
+    return 'Please select your Python starting point.';
+  }
   return '';
 }
 
@@ -103,12 +117,18 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>(initialErrors);
   const [status, setStatus] = useState<string>('');
-  const [isValidated, setIsValidated] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [activeInstance, setActiveInstance] = useState<'inline' | 'modal' | null>(null);
 
   const openerRef = useRef<HTMLElement | null>(null);
   const scrollPosRef = useRef<number>(0);
+
+  // Capture UTM parameters on initial load
+  useEffect(() => {
+    captureUrlAttribution();
+  }, []);
 
   const openModal = useCallback((opener?: HTMLElement | null) => {
     if (typeof window !== 'undefined') {
@@ -138,10 +158,10 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
         return { ...prev, [field]: err };
       });
     }
-    if (isValidated) {
-      setIsValidated(false);
+    if (isSubmitted) {
+      setIsSubmitted(false);
     }
-  }, [errors, isValidated]);
+  }, [errors, isSubmitted]);
 
   const handleInputBlur = useCallback((field: keyof FormErrors, instance: 'inline' | 'modal') => {
     setActiveInstance(instance);
@@ -158,10 +178,12 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  const handleSubmit = useCallback((e: React.FormEvent, instance: 'inline' | 'modal') => {
+  const handleSubmit = useCallback(async (e: React.FormEvent, instance: 'inline' | 'modal') => {
     e.preventDefault();
     setActiveInstance(instance);
-    if (isValidated) return;
+
+    // Duplicate submit protection
+    if (isSubmitting) return;
 
     setStatus('');
     const trimmedValues: FormValues = {
@@ -193,7 +215,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
     if (expErr) invalidFields.push('experience');
 
     if (invalidFields.length > 0) {
-      setStatus('Please correct the highlighted fields. No information is sent or saved.');
+      setStatus('Please correct the highlighted fields and try again.');
       if (typeof document !== 'undefined') {
         const firstInvalidId = `${instance}-${invalidFields[0]}`;
         const firstElement = document.getElementById(firstInvalidId);
@@ -202,18 +224,90 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
+    // Honeypot check
     if (trimmedValues.website) {
-      setStatus('Demo validation could not complete. Clear the form and try again.');
+      setStatus('Unable to process submission. Please clear the form and try again.');
       return;
     }
 
-    setIsValidated(true);
-    setStatus('Demo only: your sample details passed local validation. No information was sent or saved. No enquiry or enrolment was created.');
-  }, [isValidated, values]);
+    setIsSubmitting(true);
+
+    // Read stored attribution snapshot for submission
+    const attributionSnapshot = getStoredAttribution();
+
+    const payload = {
+      name: trimmedValues.fullName,
+      email: trimmedValues.email,
+      phone: normalizeIndiaPhone(trimmedValues.mobile),
+      pythonStartingPoint: trimmedValues.experience,
+      countryCode: '+91',
+      timezone: 'Asia/Kolkata',
+      route: typeof window !== 'undefined' ? window.location.pathname : '/',
+      ...(attributionSnapshot?.data || {}),
+    };
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && data?.success) {
+        // Success verified: clear attribution ONLY if no newer attribution arrived
+        clearStoredAttribution(attributionSnapshot?.capturedAt);
+
+        setIsSubmitted(true);
+        setStatus(
+          data.message ||
+            'Thank you! Your enquiry has been received. Our team will contact you shortly.'
+        );
+        setValues(initialValues);
+        setErrors(initialErrors);
+      } else {
+        // Handle specific server error statuses
+        if (response.status === 409) {
+          setStatus(
+            data?.message ||
+              'It looks like there is a conflicting record with this email or phone number.'
+          );
+        } else if (response.status === 403) {
+          setStatus(
+            data?.message ||
+              'This account is currently inactive or on hold. Please contact support.'
+          );
+        } else if (response.status === 400) {
+          if (data?.errors) {
+            const serverErrors: Partial<FormErrors> = {};
+            if (data.errors.name?._errors?.[0]) serverErrors.fullName = data.errors.name._errors[0];
+            if (data.errors.email?._errors?.[0]) serverErrors.email = data.errors.email._errors[0];
+            if (data.errors.phone?._errors?.[0]) serverErrors.mobile = data.errors.phone._errors[0];
+            if (data.errors.pythonStartingPoint?._errors?.[0])
+              serverErrors.experience = data.errors.pythonStartingPoint._errors[0];
+
+            setErrors(prev => ({ ...prev, ...serverErrors }));
+          }
+          setStatus(data?.message || 'Please check your details and try again.');
+        } else {
+          setStatus(
+            data?.message || 'Oops! Something went wrong on our end. Please try again later.'
+          );
+        }
+      }
+    } catch {
+      setStatus('Network error. Please check your connection and try submitting again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [isSubmitting, values]);
 
   const handleReset = useCallback((instance: 'inline' | 'modal') => {
     setActiveInstance(instance);
-    setIsValidated(false);
+    setIsSubmitted(false);
     setStatus('');
     setValues(initialValues);
     setErrors(initialErrors);
@@ -229,14 +323,14 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       setValues(initialValues);
       setErrors(initialErrors);
       setStatus('');
-      setIsValidated(false);
+      setIsSubmitted(false);
     };
     const handlePageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
         setValues(initialValues);
         setErrors(initialErrors);
         setStatus('');
-        setIsValidated(false);
+        setIsSubmitted(false);
       }
     };
     window.addEventListener('pagehide', handlePageHide);
@@ -253,7 +347,8 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
         values,
         errors,
         status,
-        isValidated,
+        isSubmitting,
+        isSubmitted,
         isModalOpen,
         activeInstance,
         openerRef,

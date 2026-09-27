@@ -540,8 +540,7 @@ export default function HomePage() {
                   </span>
                 </summary>
                 <p>
-                  No. The form only demonstrates validation in your browser. No information is sent
-                  or saved, and no enquiry or enrolment is created.
+                  Yes. Submitting the enquiry form sends your details to the CodeistaAI team so we can provide you with course information and next steps.
                 </p>
               </details>
             </div>
@@ -575,10 +574,9 @@ export default function HomePage() {
               </dl>
 
               <div className="preview-note">
-                <strong>You&apos;re exploring a UI prototype.</strong>
+                <strong>Course Enquiry</strong>
                 <p>
-                  The form is a local demonstration. Use sample details; no information is sent or
-                  saved.
+                  Submit your details to receive full syllabus information and next batch schedules.
                 </p>
               </div>
             </div>

@@ -105,7 +105,7 @@ export default function EnquiryDialogModal() {
       id="enquiry-dialog"
       ref={dialogRef}
       aria-labelledby="modal-enquiry-form-title"
-      aria-describedby="modal-demo-notice"
+      aria-describedby="modal-enquiry-notice"
     >
       <button
         type="button"

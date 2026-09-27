@@ -1813,7 +1813,9 @@ h3 {
 /* Native modal supplies focus containment and makes the background inert. */
 #enquiry-dialog {
   width: min(510px, calc(100% - 32px));
-  max-height: calc(100dvh - 32px);
+  max-height: calc(100dvh - 24px);
+  max-height: calc(100vh - 24px);
+  margin: auto;
   padding: 0;
   border: 1px solid #c4d2b7;
   border-radius: 12px;
@@ -1822,6 +1824,8 @@ h3 {
   overflow-y: auto;
   overscroll-behavior: contain;
   box-shadow: 0 30px 100px #0006;
+  position: fixed;
+  inset: 0;
 }
 
 #enquiry-dialog::backdrop {
@@ -1834,6 +1838,7 @@ h3 {
   border-radius: 0;
   box-shadow: none;
   padding-top: 35px;
+  position: relative;
 }
 
 .dialog-close {
@@ -1850,7 +1855,9 @@ h3 {
   color: #324627;
   font-size: 1.65rem;
   line-height: 1;
-  z-index: 1;
+  z-index: 10;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .dialog-close:hover {
@@ -1862,12 +1869,37 @@ h3 {
 }
 
 @media (max-width: 540px) {
+  #enquiry-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 16px);
+    max-height: calc(100vh - 16px);
+  }
   #enquiry-dialog .form-card {
     padding: 29px 22px 23px;
   }
   .dialog-close {
     right: 12px;
     top: 12px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-height: 700px) {
+  #enquiry-dialog {
+    margin: 8px auto;
+    max-height: calc(100dvh - 16px);
+    max-height: calc(100vh - 16px);
+  }
+  #enquiry-dialog .form-card {
+    padding: 22px 20px 20px;
+  }
+  .dialog-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.35rem;
   }
 }
 

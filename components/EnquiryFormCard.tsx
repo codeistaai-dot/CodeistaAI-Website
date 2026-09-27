@@ -12,7 +12,8 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
     values,
     errors,
     status,
-    isValidated,
+    isSubmitting,
+    isSubmitted,
     handleInputChange,
     handleInputBlur,
     handleSubmit,
@@ -23,16 +24,18 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
 
   return (
     <div className="form-card">
-      <span className="form-badge">DEMO ONLY</span>
+      <span className="form-badge">COURSE ENQUIRY</span>
       <h3 id={`${idPrefix}-enquiry-form-title`}>Let&apos;s start with you.</h3>
-      <p id={`${idPrefix}-demo-notice`}>Try the enquiry form. No information is sent or saved.</p>
-      <p className="required-note">All fields are required. Use sample details.</p>
+      <p id={`${idPrefix}-enquiry-notice`}>
+        Fill in your details to receive course information and syllabus.
+      </p>
+      <p className="required-note">All fields are required.</p>
 
       <form
         id={`${idPrefix}-enquiry-form`}
         noValidate
         autoComplete="off"
-        aria-describedby={`${idPrefix}-demo-notice`}
+        aria-describedby={`${idPrefix}-enquiry-notice`}
         onSubmit={e => handleSubmit(e, instance)}
         onReset={e => {
           e.preventDefault();
@@ -48,14 +51,15 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
             type="text"
             required
             minLength={2}
-            maxLength={80}
-            placeholder="e.g. Sample Learner"
-            autoComplete="off"
+            maxLength={60}
+            placeholder="e.g. Priyanshu Sharma"
+            autoComplete="name"
             aria-describedby={`${idPrefix}-name-error`}
             aria-invalid={errors.fullName ? 'true' : 'false'}
             value={values.fullName}
             onChange={e => handleInputChange('fullName', e.target.value)}
             onBlur={() => handleInputBlur('fullName', instance)}
+            disabled={isSubmitting}
           />
           <p className="error" id={`${idPrefix}-name-error`}>
             {errors.fullName ? `Error: ${errors.fullName}` : ''}
@@ -72,7 +76,7 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
             required
             maxLength={254}
             placeholder="e.g. learner@example.com"
-            autoComplete="off"
+            autoComplete="email"
             autoCapitalize="none"
             spellCheck="false"
             aria-describedby={`${idPrefix}-email-error`}
@@ -80,6 +84,7 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
             value={values.email}
             onChange={e => handleInputChange('email', e.target.value)}
             onBlur={() => handleInputBlur('email', instance)}
+            disabled={isSubmitting}
           />
           <p className="error" id={`${idPrefix}-email-error`}>
             {errors.email ? `Error: ${errors.email}` : ''}
@@ -96,16 +101,17 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
             inputMode="tel"
             required
             maxLength={25}
-            placeholder="+ [country code] [mobile number]"
-            autoComplete="off"
+            placeholder="e.g. 98765 43210 or +91 98765 43210"
+            autoComplete="tel"
             aria-describedby={`${idPrefix}-mobile-hint ${idPrefix}-mobile-error`}
             aria-invalid={errors.mobile ? 'true' : 'false'}
             value={values.mobile}
             onChange={e => handleInputChange('mobile', e.target.value)}
             onBlur={() => handleInputBlur('mobile', instance)}
+            disabled={isSubmitting}
           />
           <p id={`${idPrefix}-mobile-hint`} className="mobile-hint">
-            Include + and your country code. Use sample details only.
+            Enter a 10-digit Indian mobile number (+91).
           </p>
           <p className="error" id={`${idPrefix}-mobile-error`}>
             {errors.mobile ? `Error: ${errors.mobile}` : ''}
@@ -124,6 +130,7 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
             value={values.experience}
             onChange={e => handleInputChange('experience', e.target.value)}
             onBlur={() => handleInputBlur('experience', instance)}
+            disabled={isSubmitting}
           >
             <option value="">Choose an option</option>
             <option value="new">I&apos;m starting from scratch</option>
@@ -147,13 +154,19 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
           />
         </div>
 
-        <button className="button form-submit" type="submit" disabled={isValidated}>
-          Try demo enquiry <span aria-hidden="true">↗</span>
+        <button
+          className="button form-submit"
+          type="submit"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting ? 'true' : 'false'}
+        >
+          {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}{' '}
+          <span aria-hidden="true">↗</span>
         </button>
 
         <p
           id={`${idPrefix}-form-status`}
-          className="form-status"
+          className={`form-status ${isSubmitted ? 'status-success' : ''}`}
           role="status"
           aria-live="polite"
           aria-atomic="true"
@@ -161,12 +174,12 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
           {status}
         </p>
 
-        <button type="reset" className="reset-button">
-          Clear sample details
+        <button type="reset" className="reset-button" disabled={isSubmitting}>
+          Clear form
         </button>
 
         <noscript>
-          <p>This demo requires JavaScript for local validation. No information can be submitted.</p>
+          <p>Please enable JavaScript to submit the enquiry form.</p>
         </noscript>
       </form>
     </div>
