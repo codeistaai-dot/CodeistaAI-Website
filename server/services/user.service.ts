@@ -120,17 +120,16 @@ export class UserService {
     const { startDate, endDate, page, limit, range } = query;
     const skip = (page - 1) * limit;
 
-    const { start, end } = getDateRangeBounds(range, startDate, endDate);
+    const { start, end } = getDateRangeBounds(range, startDate, endDate, 'Asia/Kolkata');
 
-    const filter: any = {};
-    if (start && end) {
-      filter.createdAt = {
+    const filter: any = {
+      createdAt: {
         $gte: start,
-        $lt: end,
-      };
-    }
+        $lte: end,
+      },
+    };
 
-    logger.info(`Fetching user details for range: ${range}`);
+    logger.info(`Fetching user details for range: ${range}, bounds: [${start.toISOString()} - ${end.toISOString()}]`);
 
     const [total, campaigns] = await Promise.all([
       UtmCampaign.countDocuments(filter),
