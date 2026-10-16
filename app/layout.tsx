@@ -4,7 +4,7 @@ import { FormModalProvider } from '@/context/FormModalContext';
 
 export const viewport: Viewport = {
   colorScheme: 'dark light',
-  themeColor: '#141817',
+  themeColor: '#1a0c40',
 };
 
 export const metadata: Metadata = {

@@ -12,24 +12,13 @@ export default function HeaderNav() {
 
   const closeMenu = useCallback((restoreFocus = false) => {
     setIsMenuOpen(false);
-    if (!isModalOpen) {
-      document.body.style.overflowY = '';
-    }
     if (restoreFocus && menuButtonRef.current) {
       menuButtonRef.current.focus();
     }
-  }, [isModalOpen]);
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(prev => {
-      const next = !prev;
-      if (next) {
-        document.body.style.overflowY = 'hidden';
-      } else if (!isModalOpen) {
-        document.body.style.overflowY = '';
-      }
-      return next;
-    });
+    setIsMenuOpen(prev => !prev);
   };
 
   const handleEnquireClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -39,6 +28,24 @@ export default function HeaderNav() {
     setIsMenuOpen(false);
     openModal(opener);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-open');
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.classList.remove('menu-open');
+      if (!isModalOpen) {
+        document.body.style.overflowY = '';
+      }
+    }
+    return () => {
+      document.body.classList.remove('menu-open');
+      if (!isModalOpen) {
+        document.body.style.overflowY = '';
+      }
+    };
+  }, [isMenuOpen, isModalOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

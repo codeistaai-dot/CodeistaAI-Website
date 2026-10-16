@@ -4,10 +4,12 @@ import HeaderNav from '@/components/HeaderNav';
 import EnquiryCTA from '@/components/EnquiryCTA';
 import EnquiryFormCard from '@/components/EnquiryFormCard';
 import EnquiryDialogModal from '@/components/EnquiryDialogModal';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default function HomePage() {
   return (
     <>
+      <ScrollReveal />
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -21,7 +23,7 @@ export default function HomePage() {
       </header>
 
       <main id="main">
-        <section className="hero dark" aria-labelledby="hero-title">
+        <section className="hero dark cinematic-hero" aria-labelledby="hero-title">
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
@@ -51,87 +53,169 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="workspace" aria-label="Illustrative Python code example">
-              <div className="workspace-top">
-                <span className="mono">CODEISTA / PYTHON LAB</span>
-                <span className="outline-tag">EXAMPLE</span>
-              </div>
-              <div className="editor">
-                <div className="editor-tab">
-                  <span className="lime" aria-hidden="true">
-                    ⌘
-                  </span>{' '}
-                  first_step.py <span className="muted">×</span>
+            <div className="hero-visual">
+              <div
+                aria-label="Illustrative Python learning workspace"
+                className="python-stage"
+              >
+                <div className="stage-grid"></div>
+                <div className="orbit orbit-one"></div>
+                <div className="orbit orbit-two"></div>
+                <div className="orbit orbit-three"></div>
+                <div className="orbit-label top-label">
+                  <i></i> ONE LANGUAGE. OPEN POSSIBILITIES.
                 </div>
+                <div className="python-core">
+                  <span className="core-bracket">{'{'}</span>
+                  <span className="py-mark">
+                    py<span>_</span>
+                  </span>
+                  <span className="core-bracket">{'}'}</span>
+                </div>
+                <span className="floating-label label-a">01 / THINK</span>
+                <span className="floating-label label-b">02 / BUILD</span>
+                <span className="floating-label label-c">03 / ITERATE</span>
+                <div className="stage-caption">
+                  YOUR IDEAS BELONG HERE <span>↗</span>
+                </div>
+                <div aria-hidden="true" className="scene-slab slab-one">
+                  <div className="slab-dots">
+                    <i></i><i></i><i></i><span>01 / LOGIC</span>
+                  </div>
+                  <code>
+                    if curious:
+                    <br />
+                    &nbsp;&nbsp;take_first_step()
+                  </code>
+                  <div className="slab-foot">
+                    <span>PYTHON WORKSPACE</span>
+                    <b>↗</b>
+                  </div>
+                </div>
+                <div aria-hidden="true" className="scene-slab slab-two">
+                  <div className="slab-dots">
+                    <i></i><i></i><i></i><span>02 / EXPERIMENT</span>
+                  </div>
+                  <code>
+                    for idea in ideas:
+                    <br />
+                    &nbsp;&nbsp;try_it(idea)
+                  </code>
+                  <div className="slab-foot">
+                    <span>PYTHON WORKSPACE</span>
+                    <b>↗</b>
+                  </div>
+                </div>
+                <div aria-hidden="true" className="scene-slab slab-three">
+                  <div className="slab-dots">
+                    <i></i><i></i><i></i><span>03 / CREATE</span>
+                  </div>
+                  <code>
+                    your_idea = build()
+                    <br />
+                    your_idea.run()
+                  </code>
+                  <div className="slab-foot">
+                    <span>PYTHON WORKSPACE</span>
+                    <b>↗</b>
+                  </div>
+                </div>
+                <div aria-hidden="true" className="scene-plane"></div>
+                <div aria-hidden="true" className="scene-caption">
+                  <span>IDEA</span><i></i><span>CODE</span><i></i><span>CREATE</span>
+                </div>
+              </div>
+
+              <details className="code-disclosure">
+                <summary>
+                  first_step.py<span>OPEN CODE PREVIEW +</span>
+                </summary>
                 <div
-                  className="code"
-                  aria-label="Python code: defines a list of ideas, prints a build message for each idea, then prints Your next chapter starts here."
+                  aria-label="Illustrative Python code example"
+                  className="workspace hero-code-panel"
                 >
-                  <div>
-                    <i>01</i>
-                    <span className="comment"># Big ideas. Small first steps.</span>
+                  <div className="workspace-top">
+                    <span className="mono">CODEISTA / PYTHON LAB</span>
+                    <span className="outline-tag">EXAMPLE</span>
                   </div>
-                  <div>
-                    <i>02</i>
-                    <span className="purple">ideas</span> = [
+                  <div className="editor">
+                    <div className="editor-tab">
+                      <span className="lime" aria-hidden="true">
+                        ⌘
+                      </span>{' '}
+                      first_step.py <span className="muted">×</span>
+                    </div>
+                    <div
+                      className="code"
+                      aria-label="Python code: defines a list of ideas, prints a build message for each idea, then prints Your next chapter starts here."
+                    >
+                      <div>
+                        <i>01</i>
+                        <span className="comment"># Big ideas. Small first steps.</span>
+                      </div>
+                      <div>
+                        <i>02</i>
+                        <span className="purple">ideas</span> = [
+                      </div>
+                      <div>
+                        <i>03</i> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="lime">&quot;automate the everyday&quot;</span>,
+                      </div>
+                      <div>
+                        <i>04</i> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="lime">&quot;make sense of data&quot;</span>,
+                      </div>
+                      <div>
+                        <i>05</i> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="lime">&quot;build something useful&quot;</span>
+                      </div>
+                      <div>
+                        <i>06</i>]
+                      </div>
+                      <div>
+                        <i>07</i>&nbsp;
+                      </div>
+                      <div>
+                        <i>08</i>
+                        <span className="purple">for</span> idea <span className="purple">in</span> ideas:
+                      </div>
+                      <div>
+                        <i>09</i> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="warm">print</span>(
+                        <span className="lime">f&quot;Let&apos;s &#123;idea&#125;.&quot;</span>)
+                      </div>
+                      <div>
+                        <i>10</i>&nbsp;
+                      </div>
+                      <div>
+                        <i>11</i>
+                        <span className="warm">print</span>(
+                        <span className="lime">&quot;Your next chapter starts here.&quot;</span>)
+                      </div>
+                    </div>
+                    <div className="terminal">
+                      <div className="terminal-label">
+                        <span>OUTPUT PREVIEW</span>
+                        <span className="lime">Python 3</span>
+                      </div>
+                      <p>
+                        <span aria-hidden="true">›</span> Let&apos;s build something useful.
+                      </p>
+                      <p className="lime">
+                        <span aria-hidden="true">›</span> Your next chapter starts here.
+                        <span className="cursor" aria-hidden="true"></span>
+                      </p>
+                      <small>Illustrative excerpt · code is not executed</small>
+                    </div>
                   </div>
-                  <div>
-                    <i>03</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="lime">&quot;automate the everyday&quot;</span>,
-                  </div>
-                  <div>
-                    <i>04</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="lime">&quot;make sense of data&quot;</span>,
-                  </div>
-                  <div>
-                    <i>05</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="lime">&quot;build something useful&quot;</span>
-                  </div>
-                  <div>
-                    <i>06</i>]
-                  </div>
-                  <div>
-                    <i>07</i>&nbsp;
-                  </div>
-                  <div>
-                    <i>08</i>
-                    <span className="purple">for</span> idea <span className="purple">in</span> ideas:
-                  </div>
-                  <div>
-                    <i>09</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="warm">print</span>(
-                    <span className="lime">f&quot;Let&apos;s &#123;idea&#125;.&quot;</span>)
-                  </div>
-                  <div>
-                    <i>10</i>&nbsp;
-                  </div>
-                  <div>
-                    <i>11</i>
-                    <span className="warm">print</span>(
-                    <span className="lime">&quot;Your next chapter starts here.&quot;</span>)
+                  <div className="workspace-bottom">
+                    <span>
+                      <span className="status-dot" aria-hidden="true"></span> Your ideas belong here.
+                    </span>
+                    <span aria-hidden="true">&#123; py &#125;</span>
                   </div>
                 </div>
-                <div className="terminal">
-                  <div className="terminal-label">
-                    <span>OUTPUT PREVIEW</span>
-                    <span className="lime">Python 3</span>
-                  </div>
-                  <p>
-                    <span aria-hidden="true">›</span> Let&apos;s build something useful.
-                  </p>
-                  <p className="lime">
-                    <span aria-hidden="true">›</span> Your next chapter starts here.
-                    <span className="cursor" aria-hidden="true"></span>
-                  </p>
-                  <small>Illustrative excerpt · code is not executed</small>
-                </div>
-              </div>
-              <div className="workspace-bottom">
-                <span>
-                  <span className="status-dot" aria-hidden="true"></span> Your ideas belong here.
-                </span>
-                <span aria-hidden="true">&#123; py &#125;</span>
-              </div>
+              </details>
             </div>
           </div>
 
