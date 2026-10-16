@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'CodeistaAI — Make your next move with Python',
   description:
-    'Explore a proposed Python learning journey from fundamentals to practical projects. CodeistaAI standalone UI prototype.',
+    'Explore a proposed Python learning journey from fundamentals to practical projects with CodeistaAI.',
   robots: {
     index: false,
     follow: false,

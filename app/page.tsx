@@ -14,10 +14,6 @@ export default function HomePage() {
         Skip to content
       </a>
 
-      <div className="prototype-bar">
-        DESIGN PREVIEW <span>•</span> Proposed content. Course details awaiting confirmation.
-      </div>
-
       <header className="header">
         <HeaderNav />
       </header>
@@ -687,7 +683,7 @@ export default function HomePage() {
           </a>
         </div>
         <div className="wrap footer-bottom">
-          <span>CodeistaAI · Standalone design prototype</span>
+          <span>CodeistaAI</span>
           <span>Contact &amp; legal information: to be provided</span>
         </div>
       </footer>
