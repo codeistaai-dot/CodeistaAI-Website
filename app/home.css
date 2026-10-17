@@ -135,3 +135,220 @@ body[data-course="home"] {
   padding-top: 25px !important;
   font-size: 11px !important;
 }
+
+/* ==========================================================================
+   Animations & Scroll Entrance for Landing Page
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll reveal entrance transitions */
+  .page-home .scroll-reveal {
+    opacity: 0;
+    translate: 0 48px;
+    transform: none;
+    transition: opacity 0.9s ease var(--reveal-delay, 0ms),
+                translate 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) !important;
+  }
+
+  .page-home .scroll-reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  /* Status dot pulse */
+  .page-home .dot {
+    animation: home-dot-pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes home-dot-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 12px #905bf4;
+    }
+    50% {
+      transform: scale(1.3);
+      box-shadow: 0 0 22px #d6b5ff, 0 0 35px #905bf4;
+    }
+  }
+
+  /* Central >_ badge gentle hovering */
+  .page-home .nexus-source {
+    animation: nexus-source-float 6s ease-in-out infinite;
+  }
+  @keyframes nexus-source-float {
+    0%, 100% {
+      transform: translateY(0);
+      box-shadow: inset 0 1px #fff4, 0 0 40px #905bf438;
+    }
+    50% {
+      transform: translateY(-6px);
+      box-shadow: inset 0 1px #fff4, 0 0 55px #c9acff66, 0 12px 35px #905bf444;
+    }
+  }
+
+  /* Nexus ambient glow drift & breathe */
+  .page-home .nexus-glow {
+    animation: nexus-glow-breathe 12s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+  @keyframes nexus-glow-breathe {
+    0% {
+      opacity: 0.6;
+      transform: translate(-2%, -2%) scale(0.97);
+    }
+    50% {
+      opacity: 0.95;
+      transform: translate(2%, 2%) scale(1.05);
+    }
+    100% {
+      opacity: 0.75;
+      transform: translate(1%, -2%) scale(1.02);
+    }
+  }
+
+  /* Nexus SVG traces gentle shimmer */
+  .page-home .nexus-traces {
+    animation: nexus-trace-shimmer 7s ease-in-out infinite alternate;
+  }
+  @keyframes nexus-trace-shimmer {
+    0%, 100% {
+      filter: drop-shadow(0 0 6px #905bf466);
+      opacity: 0.8;
+    }
+    50% {
+      filter: drop-shadow(0 0 16px #d6b5ff99);
+      opacity: 1;
+    }
+  }
+
+  /* Nexus SVG trace beacon dots pulsing */
+  .page-home .nexus-traces circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: trace-circle-pulse 3s ease-in-out infinite alternate;
+  }
+  .page-home .nexus-traces circle:nth-child(2) {
+    animation-delay: -1s;
+  }
+  .page-home .nexus-traces circle:nth-child(3) {
+    animation-delay: -2s;
+  }
+  @keyframes trace-circle-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.7);
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #ffffff);
+    }
+  }
+
+  /* Nexus 3 course cards gentle staggered floating */
+  .page-home .nexus-options > a:nth-child(1) {
+    animation: nexus-card-float-1 8s ease-in-out infinite;
+  }
+  .page-home .nexus-options > a:nth-child(2) {
+    animation: nexus-card-float-2 8s ease-in-out infinite -2.7s;
+  }
+  .page-home .nexus-options > a:nth-child(3) {
+    animation: nexus-card-float-3 8s ease-in-out infinite -5.3s;
+  }
+
+  @keyframes nexus-card-float-1 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+  }
+  @keyframes nexus-card-float-2 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -8px; }
+  }
+  @keyframes nexus-card-float-3 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+  }
+
+  /* Terminal cursor blink in python feature code block */
+  .page-home .code-output p i {
+    animation: terminal-blink 1s step-end infinite;
+  }
+  @keyframes terminal-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* AI Spark shimmer in Gen AI feature block */
+  .page-home .ai-spark {
+    display: inline-block;
+    animation: ai-spark-shimmer 3.5s ease-in-out infinite;
+  }
+  @keyframes ai-spark-shimmer {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      filter: drop-shadow(0 0 4px #905bf444);
+    }
+    50% {
+      transform: scale(1.18) rotate(12deg);
+      filter: drop-shadow(0 0 14px #d6b5ffbb);
+    }
+  }
+
+  /* Connector arrows breathing in learning flow */
+  .page-home .connector {
+    animation: connector-breathe 2.5s ease-in-out infinite;
+  }
+  @keyframes connector-breathe {
+    0%, 100% {
+      opacity: 0.65;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+  }
+
+  @media (max-width: 650px) {
+    .page-home .connector {
+      animation: connector-breathe-mobile 2.5s ease-in-out infinite;
+    }
+    @keyframes connector-breathe-mobile {
+      0%, 100% {
+        opacity: 0.65;
+        transform: rotate(90deg) translateX(0);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(90deg) translateX(4px);
+      }
+    }
+  }
+}
+
+/* Micro-interactions */
+.page-home .path-list a b {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.page-home .path-list a:hover b {
+  transform: translate(4px, -4px);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-home .scroll-reveal {
+    opacity: 1 !important;
+    translate: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .page-home .dot,
+  .page-home .nexus-source,
+  .page-home .nexus-glow,
+  .page-home .nexus-traces,
+  .page-home .nexus-traces circle,
+  .page-home .nexus-options > a,
+  .page-home .code-output p i,
+  .page-home .ai-spark,
+  .page-home .connector {
+    animation: none !important;
+  }
+}

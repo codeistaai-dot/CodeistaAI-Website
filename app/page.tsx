@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeaderNav from '@/components/HeaderNav';
 import CourseBodyClass from '@/components/CourseBodyClass';
+import ScrollReveal from '@/components/ScrollReveal';
 import './home.css';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="page-home">
+      <ScrollReveal />
       <CourseBodyClass course="home" />
       <a className="skip" href="#main">
         Skip to content

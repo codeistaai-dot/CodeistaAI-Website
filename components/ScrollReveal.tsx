@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     try {
       const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,7 +22,31 @@ export default function ScrollReveal() {
 
         const elements = Array.from(
           document.querySelectorAll<HTMLElement>(
-            '.section-heading, .pillars article, .curriculum-intro, .modules details, .project-card, .project-bottom, .faq-grid > div, .enquiry-grid > div, .footer-main'
+            [
+              // Course pages
+              '.section-heading',
+              '.pillars article',
+              '.curriculum-intro',
+              '.modules details',
+              '.project-card',
+              '.project-bottom',
+              '.faq-grid > div',
+              '.enquiry-grid > div',
+              '.footer-main',
+              // Landing page (page-home)
+              '.page-home .section-head',
+              '.page-home .course-card',
+              '.page-home .feature-row',
+              '.page-home .feature-pair > div',
+              '.page-home .stack-board',
+              '.page-home .feature-bottom',
+              '.page-home .workspace',
+              '.page-home .flow > div',
+              '.page-home .direction > div',
+              '.page-home .path-list > a',
+              '.page-home .closing',
+              '.page-home footer.wrap',
+            ].join(', ')
           )
         );
 
@@ -48,7 +75,11 @@ export default function ScrollReveal() {
           if (rect.top < window.innerHeight - 60 && rect.bottom > 0) {
             el.classList.add('is-visible');
           }
-          if (el.parentElement?.matches('.pillars, .project-grid')) {
+          if (
+            el.parentElement?.matches(
+              '.pillars, .project-grid, .course-grid, .feature-pair, .flow, .path-list'
+            )
+          ) {
             const index = Array.from(el.parentElement.children).indexOf(el);
             el.style.setProperty('--reveal-delay', `${index * 120}ms`);
           }
@@ -79,7 +110,7 @@ export default function ScrollReveal() {
     } catch {
       // If animation initialization fails, elements remain visible and accessible
     }
-  }, []);
+  }, [pathname]);
 
   return null;
 }
