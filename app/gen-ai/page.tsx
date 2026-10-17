@@ -9,7 +9,7 @@ import EnquiryDialogModal from '@/components/EnquiryDialogModal';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI | Gen AI Course Preview',
+  title: 'CodeistaAI — Gen AI',
   description:
     'Explore a proposed Gen AI learning journey from prompting to retrieval and evaluation with CodeistaAI.',
   robots: {
@@ -54,9 +54,7 @@ export default function GenAIPage() {
                   See the learning path <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">
-                Gen AI learning <span aria-hidden="true">/</span> Proposed course preview
-              </p>
+              <p className="hero-note">Gen AI learning</p>
             </div>
 
             <div className="hero-visual">
@@ -449,7 +447,7 @@ export default function GenAIPage() {
                 <br />
                 take the next step.
               </h2>
-              <p className="faq-intro">A few things to know about this Gen AI course preview.</p>
+              <p className="faq-intro">A few things to know about this Gen AI course.</p>
             </div>
 
             <div className="faqs">

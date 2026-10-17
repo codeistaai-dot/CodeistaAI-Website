@@ -198,11 +198,6 @@ export default function HomePage() {
               </div>
             </Link>
           </div>
-
-          <p className="note">
-            Course pages are previews. Final curriculum, prerequisites, pricing and schedules are
-            to be confirmed.
-          </p>
         </section>
 
         <section className="course-deep section wrap">

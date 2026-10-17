@@ -57,9 +57,7 @@ export default function PythonPage() {
                   See the learning path <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">
-                Python-focused learning <span aria-hidden="true">/</span> Proposed course preview
-              </p>
+              <p className="hero-note">Python-focused learning</p>
             </div>
 
             <div className="hero-visual">
@@ -447,7 +445,7 @@ export default function PythonPage() {
                 <br />
                 take the next step.
               </h2>
-              <p className="faq-intro">A few things to know about this Python course preview.</p>
+              <p className="faq-intro">A few things to know about this Python course.</p>
             </div>
 
             <div className="faqs">

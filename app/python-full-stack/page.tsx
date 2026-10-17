@@ -10,7 +10,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import CourseBodyClass from '@/components/CourseBodyClass';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI | Python Full Stack Course Preview',
+  title: 'CodeistaAI — Python Full Stack',
   description:
     'Explore a proposed Python Full Stack learning journey from web foundations to APIs, SQL and data analysis with CodeistaAI.',
   robots: {
@@ -56,9 +56,7 @@ export default function PythonFullStackPage() {
                   See the learning path <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">
-                Python Full Stack learning <span aria-hidden="true">/</span> Proposed course preview
-              </p>
+              <p className="hero-note">Python Full Stack learning</p>
             </div>
 
             <div className="hero-visual">
@@ -446,7 +444,7 @@ export default function PythonFullStackPage() {
                 take the next step.
               </h2>
               <p className="faq-intro">
-                A few things to know about this Python Full Stack course preview.
+                A few things to know about this Python Full Stack course.
               </p>
             </div>
 

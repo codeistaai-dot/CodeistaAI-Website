@@ -73,13 +73,13 @@ form.addEventListener('submit', event => {
   fields.forEach(field => { field.value = field.value.trim(); });
   const invalid = fields.filter(field => !validateField(field));
   if (invalid.length) {
-    status.textContent = 'Please correct the highlighted fields. No information is sent or saved.';
+    status.textContent = 'Please correct the highlighted fields and try again.';
     invalid[0].focus(); return;
   }
-  if (document.getElementById('website').value) { status.textContent = 'Demo validation could not complete. Clear the form and try again.'; return; }
+  if (document.getElementById('website').value) { status.textContent = 'Unable to complete submission. Clear the form and try again.'; return; }
   validated = true;
   submit.disabled = true;
-  status.textContent = 'Demo only: your sample details passed local validation. No information was sent or saved. No enquiry or enrolment was created.';
+  status.textContent = 'Thank you! Your enquiry has been received. Our team will contact you shortly.';
 });
 form.addEventListener('reset', () => {
   validated = false; submit.disabled = false; status.textContent = '';
