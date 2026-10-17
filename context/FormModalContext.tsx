@@ -235,14 +235,23 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
     // Read stored attribution snapshot for submission
     const attributionSnapshot = getStoredAttribution();
 
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+    const courseMap: Record<string, string> = {
+      '/python': 'Python',
+      '/python-full-stack': 'Python Full Stack',
+      '/gen-ai': 'Gen AI',
+    };
+    const detectedCourse = courseMap[currentPath] || 'Python';
+
     const payload = {
       name: trimmedValues.fullName,
       email: trimmedValues.email,
       phone: normalizeIndiaPhone(trimmedValues.mobile),
       pythonStartingPoint: trimmedValues.experience,
+      message: `Course: ${detectedCourse}`,
       countryCode: '+91',
       timezone: 'Asia/Kolkata',
-      route: typeof window !== 'undefined' ? window.location.pathname : '/',
+      route: currentPath,
       ...(attributionSnapshot?.data || {}),
     };
 

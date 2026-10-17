@@ -1,694 +1,548 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import HeaderNav from '@/components/HeaderNav';
-import EnquiryCTA from '@/components/EnquiryCTA';
-import EnquiryFormCard from '@/components/EnquiryFormCard';
-import EnquiryDialogModal from '@/components/EnquiryDialogModal';
-import ScrollReveal from '@/components/ScrollReveal';
+import CourseBodyClass from '@/components/CourseBodyClass';
+import './home.css';
+
+export const metadata: Metadata = {
+  title: 'CodeistaAI — Choose your next chapter',
+  description:
+    'Explore Python, Python Full Stack and Gen AI with CodeistaAI. Choose your next learning path.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  icons: {
+    icon: '/favicon.svg',
+  },
+};
 
 export default function HomePage() {
   return (
-    <>
-      <ScrollReveal />
+    <div className="page-home">
+      <CourseBodyClass course="home" />
       <a className="skip" href="#main">
         Skip to content
       </a>
 
-      <header className="header">
-        <HeaderNav />
-      </header>
+      <HeaderNav variant="home" />
 
       <main id="main">
-        <section className="hero dark cinematic-hero" aria-labelledby="hero-title">
-          <div className="wrap hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="status-dot" aria-hidden="true"></span> ONE LANGUAGE. OPEN
-                POSSIBILITIES.
-              </p>
-              <h1 id="hero-title">
-                Less wondering.
-                <br />
-                More <span className="lime">building.</span>
-              </h1>
-              <p className="hero-sub">Make your next move with Python.</p>
-              <p className="muted hero-description">
-                Turn your curiosity into code. Explore Python, connect the concepts, and start making
-                things that work.
-              </p>
-              <div className="cta-group">
-                <EnquiryCTA className="button">
-                  Explore the Python course <span aria-hidden="true">↗</span>
-                </EnquiryCTA>
-                <a className="text-link" href="#curriculum">
-                  See the learning path <span aria-hidden="true">↓</span>
-                </a>
-              </div>
-              <p className="hero-note">
-                Python-focused learning <span aria-hidden="true">/</span> Proposed course preview
-              </p>
+        <section className="hero wrap">
+          <p className="eyebrow">
+            <span className="dot"></span> THREE PATHS. YOUR NEXT CHAPTER.
+          </p>
+          <h1>
+            Start with curiosity.
+            <br />
+            Build <span>what comes next.</span>
+          </h1>
+          <p className="intro">
+            From your first line of Python to connected applications and AI-powered ideas.
+            Choose a path that speaks to you.
+          </p>
+          <a className="button" href="#courses">
+            Explore the courses <span aria-hidden="true">↗</span>
+          </a>
+
+          <div className="course-nexus">
+            <div aria-hidden="true" className="nexus-glow"></div>
+            <div aria-hidden="true" className="nexus-source">
+              &gt;_
             </div>
-
-            <div className="hero-visual">
-              <div
-                aria-label="Illustrative Python learning workspace"
-                className="python-stage"
-              >
-                <div className="stage-grid"></div>
-                <div className="orbit orbit-one"></div>
-                <div className="orbit orbit-two"></div>
-                <div className="orbit orbit-three"></div>
-                <div className="orbit-label top-label">
-                  <i></i> ONE LANGUAGE. OPEN POSSIBILITIES.
-                </div>
-                <div className="python-core">
-                  <span className="core-bracket">{'{'}</span>
-                  <span className="py-mark">
-                    py<span>_</span>
-                  </span>
-                  <span className="core-bracket">{'}'}</span>
-                </div>
-                <span className="floating-label label-a">01 / THINK</span>
-                <span className="floating-label label-b">02 / BUILD</span>
-                <span className="floating-label label-c">03 / ITERATE</span>
-                <div className="stage-caption">
-                  YOUR IDEAS BELONG HERE <span>↗</span>
-                </div>
-                <div aria-hidden="true" className="scene-slab slab-one">
-                  <div className="slab-dots">
-                    <i></i><i></i><i></i><span>01 / LOGIC</span>
-                  </div>
-                  <code>
-                    if curious:
-                    <br />
-                    &nbsp;&nbsp;take_first_step()
-                  </code>
-                  <div className="slab-foot">
-                    <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
-                  </div>
-                </div>
-                <div aria-hidden="true" className="scene-slab slab-two">
-                  <div className="slab-dots">
-                    <i></i><i></i><i></i><span>02 / EXPERIMENT</span>
-                  </div>
-                  <code>
-                    for idea in ideas:
-                    <br />
-                    &nbsp;&nbsp;try_it(idea)
-                  </code>
-                  <div className="slab-foot">
-                    <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
-                  </div>
-                </div>
-                <div aria-hidden="true" className="scene-slab slab-three">
-                  <div className="slab-dots">
-                    <i></i><i></i><i></i><span>03 / CREATE</span>
-                  </div>
-                  <code>
-                    your_idea = build()
-                    <br />
-                    your_idea.run()
-                  </code>
-                  <div className="slab-foot">
-                    <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
-                  </div>
-                </div>
-                <div aria-hidden="true" className="scene-plane"></div>
-                <div aria-hidden="true" className="scene-caption">
-                  <span>IDEA</span><i></i><span>CODE</span><i></i><span>CREATE</span>
-                </div>
-              </div>
-
-              <details className="code-disclosure">
-                <summary>
-                  first_step.py<span>OPEN CODE PREVIEW +</span>
-                </summary>
-                <div
-                  aria-label="Illustrative Python code example"
-                  className="workspace hero-code-panel"
-                >
-                  <div className="workspace-top">
-                    <span className="mono">CODEISTA / PYTHON LAB</span>
-                    <span className="outline-tag">EXAMPLE</span>
-                  </div>
-                  <div className="editor">
-                    <div className="editor-tab">
-                      <span className="lime" aria-hidden="true">
-                        ⌘
-                      </span>{' '}
-                      first_step.py <span className="muted">×</span>
-                    </div>
-                    <div
-                      className="code"
-                      aria-label="Python code: defines a list of ideas, prints a build message for each idea, then prints Your next chapter starts here."
-                    >
-                      <div>
-                        <i>01</i>
-                        <span className="comment"># Big ideas. Small first steps.</span>
-                      </div>
-                      <div>
-                        <i>02</i>
-                        <span className="purple">ideas</span> = [
-                      </div>
-                      <div>
-                        <i>03</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span className="lime">&quot;automate the everyday&quot;</span>,
-                      </div>
-                      <div>
-                        <i>04</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span className="lime">&quot;make sense of data&quot;</span>,
-                      </div>
-                      <div>
-                        <i>05</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span className="lime">&quot;build something useful&quot;</span>
-                      </div>
-                      <div>
-                        <i>06</i>]
-                      </div>
-                      <div>
-                        <i>07</i>&nbsp;
-                      </div>
-                      <div>
-                        <i>08</i>
-                        <span className="purple">for</span> idea <span className="purple">in</span> ideas:
-                      </div>
-                      <div>
-                        <i>09</i> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span className="warm">print</span>(
-                        <span className="lime">f&quot;Let&apos;s &#123;idea&#125;.&quot;</span>)
-                      </div>
-                      <div>
-                        <i>10</i>&nbsp;
-                      </div>
-                      <div>
-                        <i>11</i>
-                        <span className="warm">print</span>(
-                        <span className="lime">&quot;Your next chapter starts here.&quot;</span>)
-                      </div>
-                    </div>
-                    <div className="terminal">
-                      <div className="terminal-label">
-                        <span>OUTPUT PREVIEW</span>
-                        <span className="lime">Python 3</span>
-                      </div>
-                      <p>
-                        <span aria-hidden="true">›</span> Let&apos;s build something useful.
-                      </p>
-                      <p className="lime">
-                        <span aria-hidden="true">›</span> Your next chapter starts here.
-                        <span className="cursor" aria-hidden="true"></span>
-                      </p>
-                      <small>Illustrative excerpt · code is not executed</small>
-                    </div>
-                  </div>
-                  <div className="workspace-bottom">
-                    <span>
-                      <span className="status-dot" aria-hidden="true"></span> Your ideas belong here.
-                    </span>
-                    <span aria-hidden="true">&#123; py &#125;</span>
-                  </div>
-                </div>
-              </details>
-            </div>
-          </div>
-
-          <div className="wrap hero-footer">
-            <span>START WITH THE FUNDAMENTALS.</span>
-            <span>THINK IN PYTHON.</span>
-            <span>
-              MAKE IT YOUR OWN. <span className="lime" aria-hidden="true">↘</span>
-            </span>
-          </div>
-        </section>
-
-        <section className="light section" id="approach" aria-labelledby="approach-title">
-          <div className="wrap">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">01 / THE APPROACH</p>
-                <h2 id="approach-title">
-                  One focus.
-                  <br />
-                  A whole new toolkit.
-                </h2>
-              </div>
-              <p>
-                Python is the starting point. These proposed learning pillars connect understanding
-                a concept with using it in your own code.
-              </p>
-            </div>
-
-            <div className="pillars">
-              <article>
-                <div className="pillar-top">
-                  <span className="number">01 / UNDERSTAND</span>
-                  <span className="pillar-symbol" aria-hidden="true">
-                    &#123; &#125;
-                  </span>
-                </div>
-                <h3>Understand the logic.</h3>
-                <p>Break a problem into clear steps with variables, conditions, and loops.</p>
-                <div className="pillar-example">
-                  <span className="example-label">START WITH A QUESTION</span>
-                  <code>
-                    <span>if</span> curious:
-                    <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;take_first_step()
-                  </code>
-                </div>
-                <div className="pillar-bottom">
-                  <span>Think clearly</span>
-                  <span aria-hidden="true">↗</span>
-                </div>
-              </article>
-
-              <article className="pillar-featured">
-                <div className="pillar-top">
-                  <span className="number">02 / EXPERIMENT</span>
-                  <span className="pillar-symbol" aria-hidden="true">
-                    &gt;_
-                  </span>
-                </div>
-                <h3>Get your hands on code.</h3>
-                <p>Try an idea. Read the output. Find the bug. Make the next version better.</p>
-                <div className="pillar-example">
-                  <span className="example-label">MAKE THE CONNECTION</span>
-                  <code>
-                    <span>for</span> idea <span>in</span> ideas:
-                    <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;try_it(idea)
-                  </code>
-                </div>
-                <div className="pillar-bottom">
-                  <span>Learn by trying</span>
-                  <span aria-hidden="true">↗</span>
-                </div>
-              </article>
-
-              <article>
-                <div className="pillar-top">
-                  <span className="number">03 / CREATE</span>
-                  <span className="pillar-symbol" aria-hidden="true">
+            <svg
+              aria-hidden="true"
+              className="nexus-traces"
+              preserveAspectRatio="none"
+              viewBox="0 0 1000 230"
+            >
+              <defs>
+                <linearGradient id="trace" x1="0" x2="0" y1="0" y2="1">
+                  <stop stopColor="#d6b5ff"></stop>
+                  <stop offset="1" stopColor="#905bf4" stopOpacity=".3"></stop>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#trace)" strokeWidth="1.5">
+                <path d="M500 0 V40 Q500 75 450 75 H220 Q170 75 170 115 V230"></path>
+                <path d="M500 0 V230"></path>
+                <path d="M500 0 V40 Q500 75 550 75 H780 Q830 75 830 115 V230"></path>
+              </g>
+              <g fill="#d6b5ff">
+                <circle cx="170" cy="150" r="3"></circle>
+                <circle cx="500" cy="110" r="3"></circle>
+                <circle cx="830" cy="150" r="3"></circle>
+              </g>
+            </svg>
+            <div className="nexus-options">
+              <Link href="/python">
+                <span className="nexus-index">01 / FOUNDATIONS</span>
+                <div>
+                  <span className="nexus-mark">py_</span>
+                  <span aria-hidden="true" className="nexus-arrow">
                     ↗
                   </span>
                 </div>
-                <h3>Make something useful.</h3>
-                <p>Turn the pieces into practical scripts, from file tools to data summaries.</p>
-                <div className="pillar-example">
-                  <span className="example-label">BRING IT TOGETHER</span>
-                  <code>
-                    your_idea = <span>build</span>()
-                    <br />
-                    your_idea.run()
-                  </code>
+                <strong>Python</strong>
+                <small>Start with the logic.</small>
+              </Link>
+              <Link href="/python-full-stack">
+                <span className="nexus-index">02 / APPLICATIONS</span>
+                <div>
+                  <span className="nexus-mark">web_</span>
+                  <span aria-hidden="true" className="nexus-arrow">
+                    ↗
+                  </span>
                 </div>
-                <div className="pillar-bottom">
-                  <span>Connect the pieces</span>
-                  <span aria-hidden="true">↗</span>
+                <strong>Python Full Stack</strong>
+                <small>Connect every layer.</small>
+              </Link>
+              <Link href="/gen-ai">
+                <span className="nexus-index">03 / POSSIBILITIES</span>
+                <div>
+                  <span className="nexus-mark">ai_</span>
+                  <span aria-hidden="true" className="nexus-arrow">
+                    ↗
+                  </span>
                 </div>
-              </article>
+                <strong>Gen AI</strong>
+                <small>Build with intelligence.</small>
+              </Link>
             </div>
+          </div>
 
-            <p className="approach-caption">
-              A proposed learning approach <span aria-hidden="true">/</span> Illustrative
-              Python-style snippets
+          <div className="hero-bottom">
+            <span>THINK CLEARLY.</span>
+            <span>CONNECT THE PIECES.</span>
+            <span>MAKE SOMETHING USEFUL.</span>
+          </div>
+        </section>
+
+        <section className="section wrap" id="courses">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">01 / CHOOSE YOUR DIRECTION</p>
+              <h2>
+                Different starting points.
+                <br />
+                The same drive to build.
+              </h2>
+            </div>
+            <p>
+              Start with the fundamentals, connect an entire application, or explore generative AI.
+              Each course has its own space to discover more.
             </p>
           </div>
+
+          <div className="course-grid">
+            <Link className="course-card" href="/python">
+              <div className="card-top">
+                <span>01 / EXPLORE</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                py_
+              </div>
+              <h3>Python</h3>
+              <p className="card-lead">Start with the foundations.</p>
+              <p>
+                Turn curiosity into code. Explore the logic, practice the basics, and build useful
+                Python scripts.
+              </p>
+              <div className="card-bottom">
+                <span>Variables · Functions · Files</span>
+                <strong>Explore course ↗</strong>
+              </div>
+            </Link>
+
+            <Link className="course-card" href="/python-full-stack">
+              <div className="card-top">
+                <span>02 / EXPLORE</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                web_
+              </div>
+              <h3>Python Full Stack</h3>
+              <p className="card-lead">Connect the whole picture.</p>
+              <p>
+                Bring the interface, Python backend, and data together. Explore web applications,
+                APIs, SQL, and pandas.
+              </p>
+              <div className="card-bottom">
+                <span>Frontend · APIs · pandas</span>
+                <strong>Explore course ↗</strong>
+              </div>
+            </Link>
+
+            <Link className="course-card" href="/gen-ai">
+              <div className="card-top">
+                <span>03 / EXPLORE</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                ai_
+              </div>
+              <h3>Gen AI</h3>
+              <p className="card-lead">Make room for new ideas.</p>
+              <p>
+                Explore how prompts, models, and retrieval work together. Build thoughtful AI tools
+                and learn to evaluate their outputs.
+              </p>
+              <div className="card-bottom">
+                <span>Prompts · RAG · Evaluation</span>
+                <strong>Explore course ↗</strong>
+              </div>
+            </Link>
+          </div>
+
+          <p className="note">
+            Course pages are previews. Final curriculum, prerequisites, pricing and schedules are
+            to be confirmed.
+          </p>
         </section>
 
-        <section
-          className="light curriculum-section"
-          id="curriculum"
-          aria-labelledby="curriculum-title"
-        >
-          <div className="wrap curriculum-grid">
-            <div className="curriculum-intro">
-              <p className="eyebrow">02 / YOUR LEARNING PATH</p>
-              <h2 id="curriculum-title">
-                From the first line
+        <section className="course-deep section wrap">
+          <div className="feature-row">
+            <div className="feature-copy">
+              <p className="eyebrow">FOUNDATIONS / PYTHON</p>
+              <h2>
+                Small first steps.
                 <br />
-                to your next idea.
+                Real understanding.
               </h2>
               <p>
-                A focused progression through Python. Open each stage to explore the proposed topics.
+                Start with the logic behind the code. Explore variables, functions and files, then
+                connect them in a useful script.
               </p>
-              <div className="draft-note">
-                <span aria-hidden="true">↳</span>
-                <p>
-                  Illustrative curriculum.
-                  <br />
-                  Final syllabus and prerequisites to be confirmed by CodeistaAI.
-                </p>
+              <Link className="feature-link" href="/python">
+                Discover Python <span>↗</span>
+              </Link>
+              <div className="mini-tags">
+                <span>Understand the logic</span>
+                <span>Learn by trying</span>
               </div>
-              <EnquiryCTA className="text-link dark-link">
-                Explore course details <span aria-hidden="true">↗</span>
-              </EnquiryCTA>
             </div>
 
-            <div className="modules">
-              <details open>
-                <summary>
-                  <span className="module-no">01</span>
-                  <span>
-                    Start speaking Python<small>Syntax &amp; foundations</small>
-                  </span>
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="module-body">
-                  <p>Get comfortable reading and writing your first Python programs.</p>
-                  <ul className="chips">
-                    <li>Variables &amp; types</li>
-                    <li>Strings &amp; numbers</li>
-                    <li>Input &amp; output</li>
-                    <li>Conditions &amp; loops</li>
-                  </ul>
-                  <p className="practice">
-                    <strong>Try it:</strong> Build a simple unit converter.
-                  </p>
-                </div>
-              </details>
+            <div className="code-window">
+              <div className="window-head">
+                <span className="window-dots">● ● ●</span>
+                <span>first_step.py</span>
+                <span>PYTHON</span>
+              </div>
+              <div className="code-lines">
+                <span className="code-comment"># Every idea starts somewhere.</span>
+                <br />
+                <span className="code-purple">ideas</span> = [
+                <br />
+                &nbsp;&nbsp;&quot;understand the basics&quot;,
+                <br />
+                &nbsp;&nbsp;&quot;automate a small task&quot;,
+                <br />
+                &nbsp;&nbsp;&quot;build something useful&quot;
+                <br />
+                ]
+                <br />
+                <br />
+                <span className="code-purple">for</span> idea <span className="code-purple">in</span> ideas:
+                <br />
+                &nbsp;&nbsp;print(f&quot;Let&apos;s &#123;idea&#125;.&quot;)
+              </div>
+              <div className="code-output">
+                <span>OUTPUT / ILLUSTRATIVE</span>
+                <p>
+                  › Let&apos;s build something useful.<i></i>
+                </p>
+              </div>
+            </div>
+          </div>
 
-              <details>
-                <summary>
-                  <span className="module-no">02</span>
-                  <span>
-                    Give your code structure<small>Functions &amp; collections</small>
-                  </span>
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="module-body">
-                  <p>Organize data and break a bigger problem into reusable pieces.</p>
-                  <ul className="chips">
-                    <li>Lists &amp; dictionaries</li>
-                    <li>Functions</li>
-                    <li>Modules</li>
-                    <li>Comprehensions</li>
-                  </ul>
-                  <p className="practice">
-                    <strong>Try it:</strong> Create a command-line task list.
-                  </p>
-                </div>
-              </details>
-
-              <details>
-                <summary>
-                  <span className="module-no">03</span>
-                  <span>
-                    Work with real inputs<small>Files, errors &amp; debugging</small>
-                  </span>
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="module-body">
-                  <p>
-                    Read local files, handle unexpected input, and understand what went wrong.
-                  </p>
-                  <ul className="chips">
-                    <li>File handling</li>
-                    <li>CSV &amp; JSON</li>
-                    <li>Exceptions</li>
-                    <li>Debugging</li>
-                  </ul>
-                  <p className="practice">
-                    <strong>Try it:</strong> Summarize a sample CSV file.
-                  </p>
-                </div>
-              </details>
-
-              <details>
-                <summary>
-                  <span className="module-no">04</span>
-                  <span>
-                    Build with intention<small>Objects, testing &amp; a project</small>
-                  </span>
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="module-body">
-                  <p>Structure a small Python project and check that its core behavior works.</p>
-                  <ul className="chips">
-                    <li>Classes &amp; objects</li>
-                    <li>Basic tests</li>
-                    <li>Project structure</li>
-                    <li>Documentation</li>
-                  </ul>
-                  <p className="practice">
-                    <strong>Try it:</strong> Build and document a useful local tool.
-                  </p>
-                </div>
-              </details>
+          <div className="feature-pair">
+            <div>
+              <h3>Start with a question.</h3>
+              <p>Turn a problem into small, clear steps you can reason about.</p>
+              <div className="mini-flow">
+                <span>Question</span>
+                <b>→</b>
+                <span>Logic</span>
+                <b>→</b>
+                <span>Code</span>
+              </div>
+            </div>
+            <div>
+              <h3>Make the next version better.</h3>
+              <p>Read the output, find the bug, and try another approach.</p>
+              <div className="iteration">
+                <span>idea.py</span>
+                <div className="iteration-line"></div>
+                <span className="iteration-end">next_version.py ↗</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section
-          className="dark section projects-section"
-          id="projects"
-          aria-labelledby="projects-title"
-        >
+        <section className="stack-section section">
           <div className="wrap">
-            <div className="section-heading">
+            <div className="section-head">
               <div>
-                <p className="eyebrow lime">03 / PUT PYTHON TO WORK</p>
-                <h2 id="projects-title">
-                  Don&apos;t just read it.
+                <p className="eyebrow">CONNECTIONS / PYTHON FULL STACK</p>
+                <h2>
+                  One application.
                   <br />
-                  Make it do something.
+                  Every layer connected.
                 </h2>
               </div>
-              <p className="muted">
-                Example project directions, not confirmed course deliverables. A glimpse of what
-                Python can help you explore.
+              <p>
+                Move between the interface, the backend and the data. Explore how the parts work
+                together to create a complete experience.
               </p>
             </div>
 
-            <div className="project-grid">
-              <article className="project-card">
-                <div className="project-visual mono">
-                  <span className="file-label">organize.py</span>
-                  <div className="file-row">
-                    <span>notes.txt</span>
-                    <span className="lime">→ /documents</span>
-                  </div>
-                  <div className="file-row">
-                    <span>photo.png</span>
-                    <span className="lime">→ /images</span>
-                  </div>
-                  <div className="file-row">
-                    <span>data.csv</span>
-                    <span className="lime">→ /datasets</span>
-                  </div>
-                </div>
-                <div className="project-info">
-                  <span className="eyebrow">AUTOMATION</span>
-                  <h3>Give busywork a shortcut.</h3>
-                  <p>Explore a file organizer that sorts sample files by type.</p>
-                  <span className="project-tag">Files · Paths · Conditions</span>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <div className="project-visual mono">
-                  <span className="file-label">summarize.py</span>
-                  <div className="data-head">
-                    <span>sample.csv</span>
-                    <span className="warm">ILLUSTRATIVE DATA</span>
-                  </div>
-                  <div className="bar-row">
-                    <span>A</span>
-                    <div style={{ '--bar': '76%' } as React.CSSProperties}></div>
-                  </div>
-                  <div className="bar-row">
-                    <span>B</span>
-                    <div style={{ '--bar': '48%' } as React.CSSProperties}></div>
-                  </div>
-                  <div className="bar-row">
-                    <span>C</span>
-                    <div style={{ '--bar': '90%' } as React.CSSProperties}></div>
-                  </div>
-                </div>
-                <div className="project-info">
-                  <span className="eyebrow">DATA EXPLORATION</span>
-                  <h3>Find the story in a file.</h3>
-                  <p>Read a sample dataset and turn its rows into a clear summary.</p>
-                  <span className="project-tag">CSV · Collections · Functions</span>
-                </div>
-              </article>
-            </div>
-
-            <div className="project-bottom">
-              <p>Your next project could start with a problem you notice every day.</p>
-              <a className="text-link" href="#curriculum">
-                Explore the foundations <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="light section" id="faq" aria-labelledby="faq-title">
-          <div className="wrap faq-grid">
-            <div>
-              <p className="eyebrow">04 / A LITTLE CLARITY</p>
-              <h2 id="faq-title">
-                Before you
-                <br />
-                take the next step.
-              </h2>
-              <p className="faq-intro">A few things to know about this Python course preview.</p>
-            </div>
-
-            <div className="faqs">
-              <details>
-                <summary>
-                  Is Python the only course offered here?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Yes. This CodeistaAI page is dedicated to Python. No additional courses or services
-                  are offered in this prototype.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Do I need coding experience?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  The proposed learning path begins with fundamentals. Eligibility, target audience,
-                  and any prerequisites are awaiting confirmation from CodeistaAI.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  What are the fees and schedule?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Course price, duration, delivery format, and start dates are to be confirmed. This
-                  preview does not accept bookings or payments.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Who teaches the course?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Instructor details are to be confirmed. No instructor profile, credential, or
-                  affiliation has been supplied for this preview.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Are certificates or placements included?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Certification and placement support details have not been provided. This preview
-                  makes no promises about certificates, employment, or career outcomes.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Will the form contact CodeistaAI?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Yes. Submitting the enquiry form sends your details to the CodeistaAI team so we can provide you with course information and next steps.
-                </p>
-              </details>
-            </div>
-          </div>
-        </section>
-
-        <section className="enquire section" id="enquire" aria-labelledby="enquire-title">
-          <div className="wrap enquiry-grid">
-            <div className="enquiry-copy">
-              <p className="eyebrow">05 / YOUR NEXT CHAPTER</p>
-              <h2 id="enquire-title">
-                Curiosity is
-                <br />
-                a great first step.
-              </h2>
-              <p>Explore what learning Python could look like for you.</p>
-
-              <dl className="course-meta">
+            <div className="stack-board">
+              <div className="window-head">
+                <span>PROJECT / YOUR NEXT APPLICATION</span>
+                <span>ILLUSTRATIVE ARCHITECTURE</span>
+              </div>
+              <div className="stack-layers">
                 <div>
-                  <dt>Course</dt>
-                  <dd>Python</dd>
+                  <span className="layer-no">01 / INTERFACE</span>
+                  <h3>What people see.</h3>
+                  <div className="mini-browser">
+                    <div></div>
+                    <p></p>
+                    <p></p>
+                    <span className="mock-button">Preview</span>
+                  </div>
+                  <small>HTML · CSS · JavaScript</small>
                 </div>
+                <b aria-hidden="true">↔</b>
                 <div>
-                  <dt>Price &amp; duration</dt>
-                  <dd>To be confirmed</dd>
+                  <span className="layer-no">02 / BACKEND</span>
+                  <h3>How it works.</h3>
+                  <div className="api-lines">
+                    <span>
+                      <em>GET</em> /tasks
+                    </span>
+                    <span>
+                      <em>POST</em> /tasks
+                    </span>
+                    <span>
+                      <em>PUT</em> /tasks/:id
+                    </span>
+                  </div>
+                  <small>Python · APIs · Validation</small>
                 </div>
+                <b aria-hidden="true">↔</b>
                 <div>
-                  <dt>Format &amp; start date</dt>
-                  <dd>To be confirmed</dd>
+                  <span className="layer-no">03 / DATA</span>
+                  <h3>What connects it.</h3>
+                  <div className="data-table">
+                    <span>DATASET</span>
+                    <span>VALUE</span>
+                    <span>sample_a</span>
+                    <span>24</span>
+                    <span>sample_b</span>
+                    <span>18</span>
+                    <span>sample_c</span>
+                    <span>32</span>
+                  </div>
+                  <small>SQL · pandas · DataFrames</small>
                 </div>
-              </dl>
-
-              <div className="preview-note">
-                <strong>Course Enquiry</strong>
-                <p>
-                  Submit your details to receive full syllabus information and next batch schedules.
-                </p>
               </div>
             </div>
 
-            <EnquiryFormCard instance="inline" />
+            <div className="feature-bottom">
+              <p>From a single request to a useful result.</p>
+              <Link className="feature-link" href="/python-full-stack">
+                Explore Python Full Stack ↗
+              </Link>
+            </div>
           </div>
+        </section>
+
+        <section className="section wrap ai-feature">
+          <div className="feature-row">
+            <div className="feature-copy">
+              <p className="eyebrow">POSSIBILITIES / GEN AI</p>
+              <h2>
+                More context.
+                <br />
+                More thoughtful AI.
+              </h2>
+              <p>
+                Explore how prompts, retrieval and evaluation can turn a model response into a useful
+                application. Learn to question the output, too.
+              </p>
+              <Link className="feature-link" href="/gen-ai">
+                Explore Gen AI ↗
+              </Link>
+            </div>
+
+            <div className="ai-window">
+              <div className="window-head">
+                <span>CONTEXT WORKSPACE</span>
+                <span>ILLUSTRATIVE</span>
+              </div>
+              <div className="document-pills">
+                <span>◈ sample-notes.txt</span>
+                <span>◈ reference.md</span>
+              </div>
+              <div className="chat-question">What are the key ideas in these notes?</div>
+              <div className="chat-response">
+                <span className="ai-spark">✧</span>
+                <div>
+                  <strong>Start with the source.</strong>
+                  <p>
+                    Retrieve relevant context. Generate a draft. Review the answer against the
+                    original material.
+                  </p>
+                  <span className="source-chip">Source references → Human review</span>
+                </div>
+              </div>
+              <div className="ai-loop">
+                <span>Prompt</span>
+                <span>→</span>
+                <span>Retrieve</span>
+                <span>→</span>
+                <span>Evaluate</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="approach section" id="approach">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <p className="eyebrow">02 / FROM IDEAS TO UNDERSTANDING</p>
+                <h2>
+                  Make the connection.
+                  <br />
+                  Then make it your own.
+                </h2>
+              </div>
+              <p>
+                A proposed approach built around understanding concepts, experimenting with code,
+                and bringing the pieces together.
+              </p>
+            </div>
+
+            <div className="workspace">
+              <div className="workspace-bar">
+                <span>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span>your_next_chapter / learning.map</span>
+                <span>PREVIEW</span>
+              </div>
+              <div className="flow">
+                <div>
+                  <span className="step">01</span>
+                  <h3>Understand</h3>
+                  <p>Find the logic behind the idea. Give each concept a clear place.</p>
+                  <code>question → clarity</code>
+                </div>
+                <span aria-hidden="true" className="connector">
+                  →
+                </span>
+                <div>
+                  <span className="step">02</span>
+                  <h3>Experiment</h3>
+                  <p>Try a small example. Inspect the result. Ask a better question.</p>
+                  <code>idea → iteration</code>
+                </div>
+                <span aria-hidden="true" className="connector">
+                  →
+                </span>
+                <div>
+                  <span className="step">03</span>
+                  <h3>Create</h3>
+                  <p>Connect what you have learned in a practical project direction.</p>
+                  <code>pieces → possibilities</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section wrap">
+          <div className="direction">
+            <div>
+              <p className="eyebrow">03 / FOLLOW YOUR CURIOSITY</p>
+              <h2>
+                Where do you
+                <br />
+                want to begin?
+              </h2>
+              <p>
+                You don’t need the whole journey mapped out. Start with the kind of work you want to
+                explore.
+              </p>
+            </div>
+
+            <div className="path-list">
+              <Link href="/python">
+                <span>
+                  &ldquo;I want to understand code.&rdquo;
+                  <small>Explore Python foundations</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </Link>
+              <Link href="/python-full-stack">
+                <span>
+                  &ldquo;I want to build an application.&rdquo;
+                  <small>Explore Python Full Stack</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </Link>
+              <Link href="/gen-ai">
+                <span>
+                  &ldquo;I want to experiment with AI.&rdquo;
+                  <small>Explore Gen AI</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="wrap closing">
+          <div>
+            <p className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+            <h2>
+              One small step.
+              <br />
+              A whole new possibility.
+            </h2>
+          </div>
+          <a className="button" href="#courses">
+            Choose your course <span aria-hidden="true">↗</span>
+          </a>
         </section>
       </main>
 
-      <footer className="dark">
-        <div className="wrap footer-main">
-          <a className="wordmark brand-link" href="#" aria-label="CodeistaAI home">
+      <footer className="wrap">
+        <div>
+          <Link href="/" aria-label="CodeistaAI home">
             <Image
               src="/logo-dark.svg"
               alt="CodeistaAI"
-              className="brand-logo"
               width={168}
-              height={26}
+              height={32}
             />
-          </a>
-          <p>A new chapter, written in Python.</p>
-          <a className="text-link" href="#main">
-            Back to top <span aria-hidden="true">↑</span>
-          </a>
+          </Link>
+          <p>Curiosity, written in code.</p>
         </div>
-        <div className="wrap footer-bottom">
-          <span>CodeistaAI</span>
-          <span>Contact &amp; legal information: to be provided</span>
-        </div>
+        <nav aria-label="Course pages">
+          <Link href="/python">Python ↗</Link>
+          <Link href="/python-full-stack">Python Full Stack ↗</Link>
+          <Link href="/gen-ai">Gen AI ↗</Link>
+        </nav>
+        <p className="legal">CodeistaAI · Contact and legal details to be provided.</p>
       </footer>
-
-      <EnquiryDialogModal />
-    </>
+    </div>
   );
 }

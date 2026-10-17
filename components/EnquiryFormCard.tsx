@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { useFormModal } from '@/context/FormModalContext';
 
 interface EnquiryFormCardProps {
@@ -8,6 +9,7 @@ interface EnquiryFormCardProps {
 }
 
 export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
+  const pathname = usePathname();
   const {
     values,
     errors,
@@ -21,6 +23,13 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
   } = useFormModal();
 
   const idPrefix = instance;
+
+  let startingPointLabel = 'Your Python starting point';
+  if (pathname === '/python-full-stack') {
+    startingPointLabel = 'Your Python Full Stack starting point';
+  } else if (pathname === '/gen-ai') {
+    startingPointLabel = 'Your Gen AI starting point';
+  }
 
   return (
     <div className="form-card">
@@ -120,7 +129,7 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
 
         <div className="field">
           <label htmlFor={`${idPrefix}-experience`}>
-            Your Python starting point <span aria-hidden="true">*</span>
+            {startingPointLabel} <span aria-hidden="true">*</span>
           </label>
           <select
             id={`${idPrefix}-experience`}
