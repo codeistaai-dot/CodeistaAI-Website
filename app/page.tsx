@@ -50,6 +50,33 @@ export default function HomePage() {
           </a>
 
           <div className="course-nexus">
+            <div className="hero-whisper whisper-left" aria-hidden="true">
+              <span className="whisper-label">
+                <i></i> AN IDEA TAKES SHAPE
+              </span>
+              <code>
+                <span>def</span> next_chapter():<br />    return possibilities
+              </code>
+              <div className="whisper-track">
+                <b></b>
+                <b></b>
+                <b></b>
+                <span>curiosity → code</span>
+              </div>
+            </div>
+            <div className="hero-whisper whisper-right" aria-hidden="true">
+              <span className="whisper-label">
+                CONNECT THE POSSIBILITIES <i></i>
+              </span>
+              <div className="whisper-symbols">
+                <span>{'{ }'}</span>
+                <em>···</em>
+                <span>⌘</span>
+                <em>···</em>
+                <span>✧</span>
+              </div>
+              <div className="whisper-caption">learn. experiment. create.</div>
+            </div>
             <div aria-hidden="true" className="nexus-glow"></div>
             <div aria-hidden="true" className="nexus-source">
               &gt;_
