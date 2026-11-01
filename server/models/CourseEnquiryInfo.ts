@@ -2,6 +2,8 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
 
 export interface ICourseEnquiryInfo extends Document {
   userId: mongoose.Types.ObjectId;
+  course?: 'Python' | 'Python Full Stack' | 'Gen AI' | string;
+  experienceLevel?: 'new' | 'basics' | 'practice';
   pythonStartingPoint: 'new' | 'basics' | 'practice';
   message?: string;
   createdAt: Date;
@@ -11,7 +13,9 @@ export interface ICourseEnquiryInfo extends Document {
 const CourseEnquiryInfoSchema: Schema<ICourseEnquiryInfo> = new Schema(
   {
     userId: { type: Schema.Types.ObjectId, required: true, ref: 'User', index: true },
-    pythonStartingPoint: { type: String, required: true, enum: ['new', 'basics', 'practice'], trim: true },
+    course: { type: String, required: false, enum: ['Python', 'Python Full Stack', 'Gen AI'], trim: true },
+    experienceLevel: { type: String, required: false, enum: ['new', 'basics', 'practice'], trim: true },
+    pythonStartingPoint: { type: String, required: false, enum: ['new', 'basics', 'practice'], trim: true },
     message: { type: String, required: false, trim: true },
   },
   {

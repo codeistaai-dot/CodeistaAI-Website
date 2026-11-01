@@ -9,9 +9,9 @@ import EnquiryDialogModal from '@/components/EnquiryDialogModal';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI — The next chapter',
+  title: 'CodeistaAI — Python Course | Think. Code. Build.',
   description:
-    'Explore a proposed Python learning journey from fundamentals to practical projects with CodeistaAI.',
+    'Master programming logic, write clean Python code, and build practical projects with CodeistaAI. AI used as a tool to support your learning.',
   robots: {
     index: false,
     follow: false,
@@ -36,28 +36,27 @@ export default function PythonPage() {
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
-                <span className="status-dot" aria-hidden="true"></span> ONE LANGUAGE. OPEN
-                POSSIBILITIES.
+                <span className="status-dot" aria-hidden="true"></span> FOUNDATIONS · PROGRAMMING LOGIC FIRST
               </p>
               <h1 id="hero-title">
-                Less wondering.
-                <br />
-                More <span className="lime">building.</span>
+                Think clearly. Write Python.
+                <br className="hide-mobile" />
+                <span className="lime">Build practical tools.</span>
               </h1>
-              <p className="hero-sub">Make your next move with Python.</p>
+              <p className="hero-sub">Practical Python programming for beginners—logic first, syntax second.</p>
               <p className="muted hero-description">
-                Turn your curiosity into code. Explore Python, connect the concepts, and start making
-                things that work.
+                Learn to break real problems into clear, logical steps. Practice variables, functions, and file scripts,
+                using AI as an interactive learning partner rather than a shortcut.
               </p>
               <div className="cta-group">
                 <EnquiryCTA className="button">
-                  Explore the Python course <span aria-hidden="true">↗</span>
+                  Enquire about this course
                 </EnquiryCTA>
                 <a className="text-link" href="#curriculum">
-                  See the learning path <span aria-hidden="true">↓</span>
+                  View curriculum <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">Python-focused learning</p>
+              <p className="hero-note">Beginner-friendly · Practical exercises · AI-assisted learning</p>
             </div>
 
             <div className="hero-visual">
@@ -70,7 +69,7 @@ export default function PythonPage() {
                 <div className="orbit orbit-two"></div>
                 <div className="orbit orbit-three"></div>
                 <div className="orbit-label top-label">
-                  <i></i> ONE LANGUAGE. OPEN POSSIBILITIES.
+                  <i></i> PROGRAMMING LOGIC FIRST
                 </div>
                 <div className="python-core">
                   <span className="core-bracket">{'{'}</span>
@@ -80,39 +79,39 @@ export default function PythonPage() {
                   <span className="core-bracket">{'}'}</span>
                 </div>
                 <span className="floating-label label-a">01 / THINK</span>
-                <span className="floating-label label-b">02 / BUILD</span>
-                <span className="floating-label label-c">03 / ITERATE</span>
+                <span className="floating-label label-b">02 / CODE</span>
+                <span className="floating-label label-c">03 / BUILD</span>
                 <div className="stage-caption">
-                  YOUR IDEAS BELONG HERE <span>↗</span>
+                  PRACTICAL PYTHON WORKSPACE
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-one">
                   <div className="slab-dots">
                     <i></i><i></i><i></i><span>01 / LOGIC</span>
                   </div>
-                  <code>if curious:<br />  take_first_step()</code>
+                  <code>if problem_clear:<br />  plan_steps()</code>
                   <div className="slab-foot">
                     <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-two">
                   <div className="slab-dots">
                     <i></i><i></i><i></i><span>02 / EXPERIMENT</span>
                   </div>
-                  <code>for idea in ideas:<br />  try_it(idea)</code>
+                  <code>for step in steps:<br />  test_logic(step)</code>
                   <div className="slab-foot">
                     <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-three">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>03 / CREATE</span>
+                    <i></i><i></i><i></i><span>03 / BUILD</span>
                   </div>
-                  <code>your_idea = build()<br />your_idea.run()</code>
+                  <code>tool = build_script()<br />tool.run()</code>
                   <div className="slab-foot">
                     <span>PYTHON WORKSPACE</span>
-                    <b>↗</b>
+                    <b>→</b>
                   </div>
                 </div>
               </div>
@@ -124,56 +123,56 @@ export default function PythonPage() {
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">01 / THE APPROACH</p>
+                <p className="eyebrow">01 / THE LEARNING APPROACH</p>
                 <h2 id="approach-title">
-                  One focus.
+                  Logic first.
                   <br />
-                  A whole new toolkit.
+                  Syntax second. Real projects.
                 </h2>
               </div>
               <p>
-                A proposed Python learning approach: understand the pieces, experiment with them,
-                and put them to work.
+                Our three-step method trains you to think like a programmer before writing code,
+                ensuring concepts stay with you long after the course.
               </p>
             </div>
 
             <div className="pillars">
               <article>
                 <div className="pillar-top">
-                  <span className="number">01 / UNDERSTAND</span>
+                  <span className="number">01 / THINK</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     {'{ }'}
                   </span>
                 </div>
                 <h3>Build a mental model.</h3>
-                <p>Learn how Python thinks so syntax feels natural, not memorized.</p>
+                <p>Learn how programming logic works so writing code feels natural, not memorized.</p>
                 <div className="pillar-example">
-                  <span className="example-label">START WITH A QUESTION</span>
+                  <span className="example-label">START WITH A PROBLEM</span>
                   <code>
-                    ideas = [&quot;automate&quot;, &quot;build&quot;]
+                    tasks = [&quot;sort files&quot;, &quot;summarize data&quot;]
                     <br />
-                    for idea in ideas:
+                    for task in tasks:
                     <br />
-                    &nbsp;&nbsp;print(idea)
+                    &nbsp;&nbsp;solve(task)
                   </code>
                 </div>
                 <div className="pillar-bottom">
                   <span>Think clearly</span>
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article className="pillar-featured">
                 <div className="pillar-top">
-                  <span className="number">02 / EXPERIMENT</span>
+                  <span className="number">02 / CODE</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     &gt;_
                   </span>
                 </div>
-                <h3>Learn by trying.</h3>
-                <p>Run small scripts, inspect the output, and get comfortable fixing errors.</p>
+                <h3>Practice with code.</h3>
+                <p>Write small scripts, inspect terminal outputs, and get comfortable fixing real errors.</p>
                 <div className="pillar-example">
-                  <span className="example-label">TRY A SMALL SCRIPT</span>
+                  <span className="example-label">WRITE CLEAN FUNCTIONS</span>
                   <code>
                     def inspect(value):
                     <br />
@@ -181,37 +180,37 @@ export default function PythonPage() {
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Learn by trying</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>Learn by doing</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article>
                 <div className="pillar-top">
-                  <span className="number">03 / CREATE</span>
+                  <span className="number">03 / BUILD</span>
                   <span className="pillar-symbol" aria-hidden="true">
-                    ↗
+                    →
                   </span>
                 </div>
-                <h3>Make something that works.</h3>
-                <p>Connect variables, functions, and files into small tools you can actually run.</p>
+                <h3>Make tools that work.</h3>
+                <p>Connect variables, functions, and files into small utilities you can run and use.</p>
                 <div className="pillar-example">
-                  <span className="example-label">MAKE IT USEFUL</span>
+                  <span className="example-label">PRACTICAL SCRIPTING</span>
                   <code>
-                    with open(&quot;notes.txt&quot;) as f:
+                    with open(&quot;data.txt&quot;) as f:
                     <br />
-                    &nbsp;&nbsp;lines = f.readlines()
+                    &nbsp;&nbsp;records = [r.strip() for r in f]
                   </code>
                 </div>
                 <div className="pillar-bottom">
                   <span>Connect the pieces</span>
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
             </div>
 
             <p className="approach-caption">
-              A proposed learning approach <span aria-hidden="true">/</span> Illustrative pseudocode
+              ThinkCode Approach <span aria-hidden="true">/</span> Programming logic first, AI as a tool
             </p>
           </div>
         </section>
@@ -225,24 +224,23 @@ export default function PythonPage() {
             <div className="curriculum-intro">
               <p className="eyebrow">02 / YOUR LEARNING PATH</p>
               <h2 id="curriculum-title">
-                From the first line
+                From first principles
                 <br />
-                to your next idea.
+                to practical scripts.
               </h2>
               <p>
-                A proposed path through Python. Topics below are illustrative and await confirmation
-                from CodeistaAI.
+                A structured path through Python fundamentals. Topics below reflect the practical core curriculum.
               </p>
               <div className="draft-note">
                 <span aria-hidden="true">↳</span>
                 <p>
-                  Illustrative curriculum.
+                  Structured core syllabus.
                   <br />
-                  Final syllabus and prerequisites to be confirmed by CodeistaAI.
+                  Batch schedules and duration to be confirmed upon enquiry.
                 </p>
               </div>
               <EnquiryCTA className="text-link dark-link">
-                Explore course details <span aria-hidden="true">↗</span>
+                Enquire about this course
               </EnquiryCTA>
             </div>
 
@@ -268,7 +266,7 @@ export default function PythonPage() {
                     <li>Basic debugging</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Write a script that sorts a list of tasks.
+                    <strong>Try it:</strong> Write a script that categorizes and sorts a list of tasks.
                   </p>
                 </div>
               </details>
@@ -311,8 +309,7 @@ export default function PythonPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Fetch information from the web, parse structured data, and automate a repetitive
-                    task.
+                    Fetch information from the web, parse structured data, and automate a repetitive task.
                   </p>
                   <ul className="chips">
                     <li>Requests &amp; JSON</li>
@@ -321,7 +318,7 @@ export default function PythonPage() {
                     <li>Automation scripts</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Summarize a sample CSV file.
+                    <strong>Try it:</strong> Read and summarize a sample CSV dataset automatically.
                   </p>
                 </div>
               </details>
@@ -345,7 +342,7 @@ export default function PythonPage() {
                     <li>Documentation</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Build and document a useful local tool.
+                    <strong>Try it:</strong> Build and document a useful local command-line tool.
                   </p>
                 </div>
               </details>
@@ -369,8 +366,7 @@ export default function PythonPage() {
                 </h2>
               </div>
               <p className="muted">
-                Example project directions, not confirmed course deliverables. A glimpse of what
-                Python can help you explore.
+                Hands-on project examples supported by our curriculum. Practical tools you build and understand.
               </p>
             </div>
 
@@ -403,7 +399,7 @@ export default function PythonPage() {
                 <div className="project-visual mono">
                   <div className="data-head">
                     <span>sample.csv</span>
-                    <span className="warm">ILLUSTRATIVE DATA</span>
+                    <span className="warm">SAMPLE DATASET</span>
                   </div>
                   <div className="bar-row">
                     <span>A</span>
@@ -421,16 +417,16 @@ export default function PythonPage() {
                 <div className="project-info">
                   <span className="eyebrow">DATA EXPLORATION</span>
                   <h3>Find the story in a file.</h3>
-                  <p>Read a sample dataset and turn its rows into a clear summary.</p>
+                  <p>Read a sample dataset and turn its rows into a clear, formatted summary.</p>
                   <span className="project-tag">CSV · Collections · Functions</span>
                 </div>
               </article>
             </div>
 
             <div className="project-bottom">
-              <p>Your next project could start with a problem you notice every day.</p>
+              <p>Practical projects start with solving problems you encounter every day.</p>
               <a className="text-link" href="#curriculum">
-                Explore the foundations <span aria-hidden="true">↗</span>
+                View curriculum <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
@@ -439,91 +435,78 @@ export default function PythonPage() {
         <section className="light section" id="faq" aria-labelledby="faq-title">
           <div className="wrap faq-grid">
             <div>
-              <p className="eyebrow">04 / A LITTLE CLARITY</p>
+              <p className="eyebrow">04 / QUESTIONS &amp; CLARITY</p>
               <h2 id="faq-title">
                 Before you
                 <br />
                 take the next step.
               </h2>
-              <p className="faq-intro">A few things to know about this Python course.</p>
+              <p className="faq-intro">Helpful answers about the Python Foundations course.</p>
             </div>
 
             <div className="faqs">
               <details>
                 <summary>
-                  What does this Python page cover?
+                  What does this Python course cover?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  This page explores a proposed Python learning journey from core logic to useful
-                  scripts. Final curriculum, prerequisites, and schedules are to be confirmed.
+                  This course covers fundamental programming logic, variables, conditionals, loops, functions,
+                  file reading/writing, and writing practical automation scripts.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Do I need coding experience?
+                  Do I need previous coding experience?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  The proposed learning path begins with fundamentals. Eligibility, target audience,
-                  and any prerequisites are awaiting confirmation from CodeistaAI.
+                  No. This course is built specifically for complete beginners and students. We start with fundamental
+                  problem-solving logic before introducing syntax.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  What are the fees and schedule?
+                  What is the course schedule and duration?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Course price, duration, delivery format, and start dates are to be confirmed. This
-                  preview does not accept bookings or payments.
+                  Course duration, batch timings, and delivery formats are to be confirmed for upcoming cohorts.
+                  Submitting an enquiry allows our team to share the latest schedule options with you.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Who teaches the course?
+                  How is AI used in this course?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Instructor details are to be confirmed. No instructor profile, credential, or
-                  affiliation has been supplied for this preview.
+                  AI is used as an interactive learning tutor to explain error messages and review student code.
+                  You learn the programming logic first so you can verify and direct AI tools with confidence.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Are certificates or placements included?
+                  What happens when I submit an enquiry?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Certification and placement support details have not been provided. This preview
-                  makes no promises about certificates, employment, or career outcomes.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Will the form contact CodeistaAI?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Yes. Submitting the enquiry form sends your details to the CodeistaAI team so we
-                  can provide you with course information and next steps.
+                  Submitting an enquiry sends your details directly to the CodeistaAI team. We follow up with the full
+                  syllabus details, batch schedules, and answer any specific questions you have.
                 </p>
               </details>
             </div>
@@ -533,33 +516,37 @@ export default function PythonPage() {
         <section className="enquire section" id="enquire" aria-labelledby="enquire-title">
           <div className="wrap enquiry-grid">
             <div className="enquiry-copy">
-              <p className="eyebrow">05 / YOUR NEXT CHAPTER</p>
+              <p className="eyebrow">05 / COURSE ENQUIRY</p>
               <h2 id="enquire-title">
-                Curiosity is
+                Enquire about
                 <br />
-                a great first step.
+                Python Foundations.
               </h2>
-              <p>Explore what learning Python could look like for you.</p>
+              <p>Submit your details to receive full syllabus information and upcoming batch schedules.</p>
 
               <dl className="course-meta">
                 <div>
                   <dt>Course</dt>
-                  <dd>Python</dd>
+                  <dd>Python Foundations</dd>
                 </div>
                 <div>
-                  <dt>Price &amp; duration</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Prerequisites</dt>
+                  <dd>None (Beginner-friendly)</dd>
                 </div>
                 <div>
-                  <dt>Format &amp; start date</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Duration &amp; schedule</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
+                </div>
+                <div>
+                  <dt>Delivery format</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
                 </div>
               </dl>
 
               <div className="preview-note">
                 <strong>Course Enquiry</strong>
                 <p>
-                  Submit your details to receive full syllabus information and next batch schedules.
+                  Connect directly with the CodeistaAI team for curriculum outlines, batch options, and learning guidance.
                 </p>
               </div>
             </div>
@@ -580,14 +567,14 @@ export default function PythonPage() {
               height={26}
             />
           </Link>
-          <p>A new chapter, written in Python.</p>
+          <p>Think. Code. Build. — Programming logic first, AI as a tool.</p>
           <a className="text-link" href="#main">
             Back to top <span aria-hidden="true">↑</span>
           </a>
         </div>
         <div className="wrap footer-bottom">
           <span>CodeistaAI</span>
-          <span>Contact &amp; legal information: to be provided</span>
+          <span>Course details, prerequisites, and schedules subject to confirmation.</span>
         </div>
       </footer>
 

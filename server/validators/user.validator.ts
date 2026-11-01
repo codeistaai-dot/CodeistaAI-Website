@@ -63,9 +63,21 @@ export const SignupSchema = z.object({
     .refine((val) => /^[6-9]\d{9}$/.test(val), {
       message: 'Enter a valid 10-digit Indian mobile number beginning with 6-9.',
     }),
-  pythonStartingPoint: z.enum(['new', 'basics', 'practice'], {
-    message: 'Please select your Python starting point.',
-  }),
+  course: z
+    .enum(['Python', 'Python Full Stack', 'Gen AI'], {
+      message: 'Please select which course you are interested in.',
+    })
+    .optional(),
+  pythonStartingPoint: z
+    .enum(['new', 'basics', 'practice'], {
+      message: 'Please select your current experience level.',
+    })
+    .optional(),
+  experienceLevel: z
+    .enum(['new', 'basics', 'practice'], {
+      message: 'Please select your current experience level.',
+    })
+    .optional(),
   message: z.string().trim().max(600, { message: 'Keep your message within 600 characters.' }).optional().or(z.literal('')),
   countryCode: z.string().default('+91'),
   timezone: z.string().default('Asia/Kolkata'),
@@ -87,6 +99,9 @@ export const SignupSchema = z.object({
   placement: z.string().optional(),
   campaignid: z.string().optional(),
   adgroupid: z.string().optional(),
+}).refine(data => !!(data.pythonStartingPoint || data.experienceLevel), {
+  message: 'Please select your current experience level.',
+  path: ['pythonStartingPoint'],
 });
 
 export const UserDetailsQuerySchema = z.object({

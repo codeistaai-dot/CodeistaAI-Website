@@ -23,13 +23,17 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
   } = useFormModal();
 
   const idPrefix = instance;
+  const initializedRouteRef = React.useRef<string | null>(null);
 
-  let startingPointLabel = 'Your Python starting point';
-  if (pathname === '/python-full-stack') {
-    startingPointLabel = 'Your Python Full Stack starting point';
-  } else if (pathname === '/gen-ai') {
-    startingPointLabel = 'Your Gen AI starting point';
-  }
+  // Set default course based on route once upon mount/route change
+  React.useEffect(() => {
+    if (initializedRouteRef.current !== pathname) {
+      initializedRouteRef.current = pathname;
+      if (pathname === '/python') handleInputChange('course', 'Python');
+      else if (pathname === '/python-full-stack') handleInputChange('course', 'Python Full Stack');
+      else if (pathname === '/gen-ai') handleInputChange('course', 'Gen AI');
+    }
+  }, [pathname, handleInputChange]);
 
   return (
     <div className="form-card">
@@ -128,8 +132,32 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
         </div>
 
         <div className="field">
+          <label htmlFor={`${idPrefix}-course`}>
+            Course of interest <span aria-hidden="true">*</span>
+          </label>
+          <select
+            id={`${idPrefix}-course`}
+            required
+            aria-describedby={`${idPrefix}-course-error`}
+            aria-invalid={errors.course ? 'true' : 'false'}
+            value={values.course}
+            onChange={e => handleInputChange('course', e.target.value)}
+            onBlur={() => handleInputBlur('course', instance)}
+            disabled={isSubmitting}
+          >
+            <option value="">Select a course</option>
+            <option value="Python">Python</option>
+            <option value="Python Full Stack">Python Full Stack</option>
+            <option value="Gen AI">Gen AI</option>
+          </select>
+          <p className="error" id={`${idPrefix}-course-error`}>
+            {errors.course ? `Error: ${errors.course}` : ''}
+          </p>
+        </div>
+
+        <div className="field">
           <label htmlFor={`${idPrefix}-experience`}>
-            {startingPointLabel} <span aria-hidden="true">*</span>
+            Current experience level <span aria-hidden="true">*</span>
           </label>
           <select
             id={`${idPrefix}-experience`}
@@ -169,8 +197,7 @@ export default function EnquiryFormCard({ instance }: EnquiryFormCardProps) {
           disabled={isSubmitting}
           aria-busy={isSubmitting ? 'true' : 'false'}
         >
-          {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}{' '}
-          <span aria-hidden="true">↗</span>
+          {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
         </button>
 
         <p

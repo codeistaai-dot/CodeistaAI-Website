@@ -7,12 +7,11 @@ import EnquiryCTA from '@/components/EnquiryCTA';
 import EnquiryFormCard from '@/components/EnquiryFormCard';
 import EnquiryDialogModal from '@/components/EnquiryDialogModal';
 import ScrollReveal from '@/components/ScrollReveal';
-import CourseBodyClass from '@/components/CourseBodyClass';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI — Python Full Stack',
+  title: 'CodeistaAI — Python Full Stack Course | Connect Front & Back',
   description:
-    'Explore a proposed Python Full Stack learning journey from web foundations to APIs, SQL and data analysis with CodeistaAI.',
+    'Learn to connect interactive web interfaces, Python APIs, and SQL databases into complete, production-ready applications.',
   robots: {
     index: false,
     follow: false,
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
 export default function PythonFullStackPage() {
   return (
     <>
-      <CourseBodyClass course="full-stack" />
       <ScrollReveal />
       <a className="skip" href="#main">
         Skip to content
@@ -37,26 +35,28 @@ export default function PythonFullStackPage() {
         <section className="hero dark cinematic-hero" aria-labelledby="hero-title">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">PYTHON FULL STACK / BUILD YOUR NEXT CHAPTER</p>
+              <p className="eyebrow">
+                <span className="status-dot" aria-hidden="true"></span> FULL STACK · FRONTEND, APIS &amp; DATA
+              </p>
               <h1 id="hero-title">
-                Less piecing together.
-                <br />
-                More <span className="lime">connecting.</span>
+                Connect the interface, API,
+                <br className="hide-mobile" />
+                and <span className="lime">database.</span>
               </h1>
-              <p className="hero-sub">Build the whole picture with Python.</p>
+              <p className="hero-sub">Build end-to-end web applications with Python.</p>
               <p className="muted hero-description">
-                Connect the interface, the backend, and the data. Explore how Python turns
-                separate parts into a working web application.
+                Go beyond isolated scripts. Connect interactive user interfaces with Python backend APIs,
+                relational databases, and data analysis—with AI as an interactive debugging and architectural assistant.
               </p>
               <div className="cta-group">
                 <EnquiryCTA className="button">
-                  Explore Python Full Stack <span aria-hidden="true">↗</span>
+                  Enquire about this course
                 </EnquiryCTA>
                 <a className="text-link" href="#curriculum">
-                  See the learning path <span aria-hidden="true">↓</span>
+                  View curriculum <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">Python Full Stack learning</p>
+              <p className="hero-note">Intermediate level · Web &amp; data integration · Practical builds</p>
             </div>
 
             <div className="hero-visual">
@@ -69,7 +69,7 @@ export default function PythonFullStackPage() {
                 <div className="orbit orbit-two"></div>
                 <div className="orbit orbit-three"></div>
                 <div className="orbit-label top-label">
-                  <i></i> ONE LANGUAGE. OPEN POSSIBILITIES.
+                  <i></i> FULL-STACK PYTHON INTEGRATION
                 </div>
                 <div className="python-core">
                   <span className="core-bracket">{'{'}</span>
@@ -78,40 +78,40 @@ export default function PythonFullStackPage() {
                   </span>
                   <span className="core-bracket">{'}'}</span>
                 </div>
-                <span className="floating-label label-a">01 / THINK</span>
-                <span className="floating-label label-b">02 / BUILD</span>
-                <span className="floating-label label-c">03 / ITERATE</span>
+                <span className="floating-label label-a">01 / INTERFACE</span>
+                <span className="floating-label label-b">02 / BACKEND</span>
+                <span className="floating-label label-c">03 / DATABASE</span>
                 <div className="stage-caption">
-                  YOUR IDEAS BELONG HERE <span>↗</span>
+                  PYTHON FULL STACK WORKSPACE
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-one">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>01 / LOGIC</span>
+                    <i></i><i></i><i></i><span>01 / FRONTEND</span>
                   </div>
                   <code>page = render(data)<br />return page</code>
                   <div className="slab-foot">
-                    <span>PYTHON FULL STACK WORKSPACE</span>
-                    <b>↗</b>
+                    <span>WEB INTERFACE</span>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-two">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>02 / EXPERIMENT</span>
+                    <i></i><i></i><i></i><span>02 / DATA LAYER</span>
                   </div>
                   <code>rows = df.groupby(&apos;type&apos;)<br />summary = rows.size()</code>
                   <div className="slab-foot">
-                    <span>PYTHON FULL STACK WORKSPACE</span>
-                    <b>↗</b>
+                    <span>SQL &amp; PANDAS</span>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-three">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>03 / CREATE</span>
+                    <i></i><i></i><i></i><span>03 / ENDPOINT</span>
                   </div>
-                  <code>response = api.get(&apos;/tasks&apos;)<br />show(response)</code>
+                  <code>response = api.get(&apos;/items&apos;)<br />return response</code>
                   <div className="slab-foot">
-                    <span>PYTHON FULL STACK WORKSPACE</span>
-                    <b>↗</b>
+                    <span>PYTHON API</span>
+                    <b>→</b>
                   </div>
                 </div>
               </div>
@@ -123,92 +123,97 @@ export default function PythonFullStackPage() {
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">01 / THE APPROACH</p>
+                <p className="eyebrow">01 / THE ARCHITECTURAL APPROACH</p>
                 <h2 id="approach-title">
-                  One focus.
+                  Understand every layer.
                   <br />
-                  A whole new toolkit.
+                  Connect the full system.
                 </h2>
               </div>
               <p>
-                A proposed Python Full Stack learning approach: understand the pieces, experiment
-                with them, and put them to work.
+                Learn how frontend forms, server-side Python endpoints, and relational databases exchange data seamlessly.
               </p>
             </div>
 
             <div className="pillars">
               <article>
                 <div className="pillar-top">
-                  <span className="number">01 / UNDERSTAND</span>
+                  <span className="number">01 / INTERFACE</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     {'{ }'}
                   </span>
                 </div>
                 <h3>See the whole system.</h3>
-                <p>Understand how a page, an API, and a database work together.</p>
+                <p>Understand how a web page, an API route, and a database communicate.</p>
                 <div className="pillar-example">
-                  <span className="example-label">START WITH A QUESTION</span>
+                  <span className="example-label">FRONTEND REQUEST</span>
                   <code>
-                    page = render(data)
+                    fetch(&quot;/api/tasks&quot;, &#123;
                     <br />
-                    return page
+                    &nbsp;&nbsp;method: &quot;POST&quot;,
+                    <br />
+                    &nbsp;&nbsp;body: JSON.stringify(task)
+                    <br />
+                    &#125;)
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Think clearly</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>Frontend foundations</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article className="pillar-featured">
                 <div className="pillar-top">
-                  <span className="number">02 / EXPERIMENT</span>
+                  <span className="number">02 / BACKEND</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     &gt;_
                   </span>
                 </div>
-                <h3>Connect it with code.</h3>
-                <p>Send a request. Validate the input. Follow the data through your application.</p>
+                <h3>Connect it with Python.</h3>
+                <p>Receive requests, validate incoming payloads, and execute business logic safely.</p>
                 <div className="pillar-example">
-                  <span className="example-label">MAKE THE CONNECTION</span>
+                  <span className="example-label">PYTHON ENDPOINT</span>
                   <code>
-                    rows = df.groupby(&apos;type&apos;)
+                    @app.post(&quot;/api/tasks&quot;)
                     <br />
-                    summary = rows.size()
+                    def create_task(task: TaskSchema):
+                    <br />
+                    &nbsp;&nbsp;return db.insert(task)
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Learn by trying</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>API design</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article>
                 <div className="pillar-top">
-                  <span className="number">03 / CREATE</span>
+                  <span className="number">03 / DATA</span>
                   <span className="pillar-symbol" aria-hidden="true">
-                    ↗
+                    →
                   </span>
                 </div>
-                <h3>Build something complete.</h3>
-                <p>Bring the interface and Python backend together in a useful local project.</p>
+                <h3>Store and analyze.</h3>
+                <p>Query relational tables with SQL and summarize real-world datasets with pandas.</p>
                 <div className="pillar-example">
-                  <span className="example-label">BRING IT TOGETHER</span>
+                  <span className="example-label">DATA PROCESSING</span>
                   <code>
-                    response = api.get(&apos;/tasks&apos;)
+                    df = pd.read_sql(query, conn)
                     <br />
-                    show(response)
+                    summary = df.describe()
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Connect the pieces</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>Data integration</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
             </div>
 
             <p className="approach-caption">
-              A proposed learning approach <span aria-hidden="true">/</span> Illustrative pseudocode
+              ThinkCode Approach <span aria-hidden="true">/</span> Full-stack logic and practical architecture
             </p>
           </div>
         </section>
@@ -222,24 +227,23 @@ export default function PythonFullStackPage() {
             <div className="curriculum-intro">
               <p className="eyebrow">02 / YOUR LEARNING PATH</p>
               <h2 id="curriculum-title">
-                From the first line
+                From API endpoints
                 <br />
-                to your next idea.
+                to complete stacks.
               </h2>
               <p>
-                A proposed path through Python Full Stack. Topics below are illustrative and await
-                confirmation from CodeistaAI.
+                A structured path through frontend basics, Python backend routing, database design, and end-to-end integration.
               </p>
               <div className="draft-note">
                 <span aria-hidden="true">↳</span>
                 <p>
-                  Illustrative curriculum.
+                  Structured core syllabus.
                   <br />
-                  Final syllabus and prerequisites to be confirmed by CodeistaAI.
+                  Batch schedules and duration to be confirmed upon enquiry.
                 </p>
               </div>
               <EnquiryCTA className="text-link dark-link">
-                Explore Python Full Stack <span aria-hidden="true">↗</span>
+                Enquire about this course
               </EnquiryCTA>
             </div>
 
@@ -256,16 +260,16 @@ export default function PythonFullStackPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Explore Python logic alongside the structure and styling of a web page.
+                    Review core Python data structures and build responsive semantic web pages.
                   </p>
                   <ul className="chips">
-                    <li>Python</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
+                    <li>Semantic HTML5</li>
+                    <li>CSS layout &amp; Flexbox</li>
+                    <li>DOM manipulation</li>
                     <li>JavaScript basics</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Build a simple responsive page.
+                    <strong>Try it:</strong> Build a clean, responsive data dashboard interface.
                   </p>
                 </div>
               </details>
@@ -282,16 +286,16 @@ export default function PythonFullStackPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Explore request handling, validation, and the connection between browser and server.
+                    Set up a Python web server, define API endpoints, and handle form requests safely.
                   </p>
                   <ul className="chips">
-                    <li>HTTP</li>
-                    <li>REST APIs</li>
-                    <li>Routing</li>
-                    <li>Validation</li>
+                    <li>REST API design</li>
+                    <li>HTTP methods &amp; status codes</li>
+                    <li>Request routing</li>
+                    <li>Schema validation</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Connect a form to a local Python endpoint.
+                    <strong>Try it:</strong> Connect a frontend form to a local Python endpoint with validation.
                   </p>
                 </div>
               </details>
@@ -308,16 +312,16 @@ export default function PythonFullStackPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Store application data, then use pandas to clean, group, and summarize sample datasets.
+                    Store and query records in relational databases and process information with pandas.
                   </p>
                   <ul className="chips">
-                    <li>SQL</li>
-                    <li>pandas</li>
-                    <li>DataFrames</li>
-                    <li>CSV</li>
+                    <li>SQL queries &amp; joins</li>
+                    <li>Relational schema design</li>
+                    <li>pandas DataFrames</li>
+                    <li>Data transformation</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Turn sample records into a readable summary.
+                    <strong>Try it:</strong> Query an order database and calculate metrics with pandas.
                   </p>
                 </div>
               </details>
@@ -333,17 +337,15 @@ export default function PythonFullStackPage() {
                   </span>
                 </summary>
                 <div className="module-body">
-                  <p>
-                    Combine the layers and explore how to test and prepare an application for deployment.
-                  </p>
+                  <p>Assemble all layers into a unified project and write tests to verify functionality.</p>
                   <ul className="chips">
-                    <li>Integration</li>
-                    <li>Tests</li>
-                    <li>Git</li>
-                    <li>Deployment concepts</li>
+                    <li>Full-stack data flow</li>
+                    <li>API endpoint testing</li>
+                    <li>Error boundary handling</li>
+                    <li>Production deployment concepts</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Build and test a small local web application.
+                    <strong>Try it:</strong> Build and test a complete multi-tier CRUD web application.
                   </p>
                 </div>
               </details>
@@ -359,76 +361,75 @@ export default function PythonFullStackPage() {
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <p className="eyebrow lime">03 / PUT PYTHON TO WORK</p>
+                <p className="eyebrow lime">03 / MULTI-TIER PROJECTS</p>
                 <h2 id="projects-title">
-                  Don&apos;t just read it.
+                  Build complete,
                   <br />
-                  Make it do something.
+                  connected systems.
                 </h2>
               </div>
               <p className="muted">
-                Example project directions, not confirmed course deliverables. A glimpse of what
-                Python can help you explore.
+                Practical full-stack projects combining user interfaces, Python backend routing, and persistent database storage.
               </p>
             </div>
 
             <div className="project-grid">
               <article className="project-card">
                 <div className="project-visual mono">
-                  <span className="file-label">organize.py</span>
+                  <span className="file-label">api_service.py</span>
                   <div className="file-row">
-                    <span>notes.txt</span>
-                    <span className="lime">→ /documents</span>
+                    <span>GET /api/inventory</span>
+                    <span className="lime">200 OK</span>
                   </div>
                   <div className="file-row">
-                    <span>photo.png</span>
-                    <span className="lime">→ /images</span>
+                    <span>POST /api/orders</span>
+                    <span className="lime">201 Created</span>
                   </div>
                   <div className="file-row">
-                    <span>data.csv</span>
-                    <span className="lime">→ /datasets</span>
+                    <span>PUT /api/orders/:id</span>
+                    <span className="lime">200 OK</span>
                   </div>
                 </div>
                 <div className="project-info">
-                  <span className="eyebrow">APPLICATION EXPLORATION</span>
-                  <h3>A place for every task.</h3>
-                  <p>Explore a task tracker with a browser interface, Python API, and database.</p>
-                  <span className="project-tag">Illustrative project · scope to be confirmed</span>
+                  <span className="eyebrow">BACKEND SERVICE</span>
+                  <h3>RESTful API engine.</h3>
+                  <p>Build and document a Python web service with input validation and clear status responses.</p>
+                  <span className="project-tag">Python · Routing · Input Validation</span>
                 </div>
               </article>
 
               <article className="project-card">
                 <div className="project-visual mono">
                   <div className="data-head">
-                    <span>sample.csv</span>
-                    <span className="warm">ILLUSTRATIVE DATA</span>
+                    <span>orders_db.sql</span>
+                    <span className="warm">RELATIONAL QUERY</span>
                   </div>
                   <div className="bar-row">
-                    <span>A</span>
-                    <div style={{ '--bar': '76%' } as React.CSSProperties}></div>
+                    <span>Region A</span>
+                    <div style={{ '--bar': '82%' } as React.CSSProperties}></div>
                   </div>
                   <div className="bar-row">
-                    <span>B</span>
-                    <div style={{ '--bar': '48%' } as React.CSSProperties}></div>
+                    <span>Region B</span>
+                    <div style={{ '--bar': '54%' } as React.CSSProperties}></div>
                   </div>
                   <div className="bar-row">
-                    <span>C</span>
-                    <div style={{ '--bar': '90%' } as React.CSSProperties}></div>
+                    <span>Region C</span>
+                    <div style={{ '--bar': '94%' } as React.CSSProperties}></div>
                   </div>
                 </div>
                 <div className="project-info">
-                  <span className="eyebrow">APPLICATION EXPLORATION</span>
-                  <h3>Give your data a view.</h3>
-                  <p>Use pandas to summarize sample data and display it in a simple dashboard.</p>
-                  <span className="project-tag">Illustrative project · scope to be confirmed</span>
+                  <span className="eyebrow">DATA DASHBOARD</span>
+                  <h3>Live metrics visualizer.</h3>
+                  <p>Query relational records with SQL, aggregate data in pandas, and display live charts on the web.</p>
+                  <span className="project-tag">SQL · pandas · Dashboard UI</span>
                 </div>
               </article>
             </div>
 
             <div className="project-bottom">
-              <p>Your next project could start with a problem you notice every day.</p>
+              <p>Every application connects user actions with persistent data records.</p>
               <a className="text-link" href="#curriculum">
-                Explore the foundations <span aria-hidden="true">↗</span>
+                View curriculum <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
@@ -437,93 +438,78 @@ export default function PythonFullStackPage() {
         <section className="light section" id="faq" aria-labelledby="faq-title">
           <div className="wrap faq-grid">
             <div>
-              <p className="eyebrow">04 / A LITTLE CLARITY</p>
+              <p className="eyebrow">04 / QUESTIONS &amp; CLARITY</p>
               <h2 id="faq-title">
                 Before you
                 <br />
                 take the next step.
               </h2>
-              <p className="faq-intro">
-                A few things to know about this Python Full Stack course.
-              </p>
+              <p className="faq-intro">Helpful answers about the Python Full Stack course.</p>
             </div>
 
             <div className="faqs">
               <details>
                 <summary>
-                  What does this Python Full Stack page cover?
+                  What does this Python Full Stack course cover?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  This page explores a proposed Python Full Stack learning path. Final curriculum,
-                  prerequisites, and delivery details are to be confirmed.
+                  This course covers frontend HTML/CSS/JavaScript basics, Python backend APIs and routing,
+                  relational database design with SQL, data transformation with pandas, and full-stack integration.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Do I need coding experience?
+                  What starting knowledge is recommended?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  The proposed learning path begins with fundamentals. Eligibility, target audience,
-                  and any prerequisites are awaiting confirmation from CodeistaAI.
+                  Basic familiarity with programming logic or introductory Python syntax (variables, functions, loops)
+                  is recommended. Complete beginners should start with our Python Foundations course first.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  What are the fees and schedule?
+                  What are the duration and schedule options?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Course price, duration, delivery format, and start dates are to be confirmed. This
-                  preview does not accept bookings or payments.
+                  Course duration, batch timings, and delivery formats are being finalized for upcoming cohorts.
+                  Submitting an enquiry allows our team to share the confirmed schedule and format options with you.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Who teaches the course?
+                  How is AI used in this full-stack course?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Instructor details are to be confirmed. No instructor profile, credential, or
-                  affiliation has been supplied for this preview.
+                  AI is used as an interactive debugging assistant and code reviewer—explaining API errors,
+                  suggesting unit test cases, and reviewing architectural patterns while you write and verify the core code.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Are certificates or placements included?
+                  What happens when I submit an enquiry?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Certification and placement support details have not been provided. This preview
-                  makes no promises about certificates, employment, or career outcomes.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Will the form contact CodeistaAI?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Yes. Submitting the enquiry form sends your details to the CodeistaAI team so we
-                  can provide you with course information and next steps.
+                  Submitting an enquiry connects you directly with the CodeistaAI team. We provide the full syllabus,
+                  answer specific questions about batch schedules and prerequisites, and guide you on the best path.
                 </p>
               </details>
             </div>
@@ -533,15 +519,13 @@ export default function PythonFullStackPage() {
         <section className="enquire section" id="enquire" aria-labelledby="enquire-title">
           <div className="wrap enquiry-grid">
             <div className="enquiry-copy">
-              <p className="eyebrow">
-                Explore what learning Python Full Stack could look like for you.
-              </p>
+              <p className="eyebrow">05 / COURSE ENQUIRY</p>
               <h2 id="enquire-title">
-                Curiosity is
+                Enquire about
                 <br />
-                a great first step.
+                Python Full Stack.
               </h2>
-              <p>Explore what learning Python could look like for you.</p>
+              <p>Submit your details to receive full syllabus information and upcoming batch schedules.</p>
 
               <dl className="course-meta">
                 <div>
@@ -549,19 +533,23 @@ export default function PythonFullStackPage() {
                   <dd>Python Full Stack</dd>
                 </div>
                 <div>
-                  <dt>Price &amp; duration</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Prerequisites</dt>
+                  <dd>Basic Python recommended</dd>
                 </div>
                 <div>
-                  <dt>Format &amp; start date</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Duration &amp; schedule</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
+                </div>
+                <div>
+                  <dt>Delivery format</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
                 </div>
               </dl>
 
               <div className="preview-note">
                 <strong>Course Enquiry</strong>
                 <p>
-                  Submit your details to receive full syllabus information and next batch schedules.
+                  Connect directly with the CodeistaAI team for curriculum outlines, batch options, and learning guidance.
                 </p>
               </div>
             </div>
@@ -582,14 +570,14 @@ export default function PythonFullStackPage() {
               height={26}
             />
           </Link>
-          <p>A new chapter, built with Python Full Stack.</p>
+          <p>Think. Code. Build. — Programming logic first, AI as a tool.</p>
           <a className="text-link" href="#main">
             Back to top <span aria-hidden="true">↑</span>
           </a>
         </div>
         <div className="wrap footer-bottom">
           <span>CodeistaAI</span>
-          <span>Contact &amp; legal information: to be provided</span>
+          <span>Course details, prerequisites, and schedules subject to confirmation.</span>
         </div>
       </footer>
 

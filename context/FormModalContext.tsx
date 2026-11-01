@@ -11,6 +11,7 @@ export interface FormValues {
   fullName: string;
   email: string;
   mobile: string;
+  course: string;
   experience: string;
   website: string;
 }
@@ -19,6 +20,7 @@ export interface FormErrors {
   fullName: string;
   email: string;
   mobile: string;
+  course: string;
   experience: string;
 }
 
@@ -44,6 +46,7 @@ const initialValues: FormValues = {
   fullName: '',
   email: '',
   mobile: '',
+  course: '',
   experience: '',
   website: '',
 };
@@ -52,6 +55,7 @@ const initialErrors: FormErrors = {
   fullName: '',
   email: '',
   mobile: '',
+  course: '',
   experience: '',
 };
 
@@ -103,10 +107,18 @@ export function getMobileError(val: string): string {
   return '';
 }
 
+export function getCourseError(val: string): string {
+  const value = (val || '').trim();
+  if (!['Python', 'Python Full Stack', 'Gen AI'].includes(value)) {
+    return 'Please select a course.';
+  }
+  return '';
+}
+
 export function getExperienceError(val: string): string {
   const value = (val || '').trim();
   if (!['new', 'basics', 'practice'].includes(value)) {
-    return 'Please select your Python starting point.';
+    return 'Please select your current experience level.';
   }
   return '';
 }
@@ -154,6 +166,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
         if (field === 'fullName') err = getFullNameError(value);
         else if (field === 'email') err = getEmailError(value);
         else if (field === 'mobile') err = getMobileError(value);
+        else if (field === 'course') err = getCourseError(value);
         else if (field === 'experience') err = getExperienceError(value);
         return { ...prev, [field]: err };
       });
@@ -172,6 +185,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       if (field === 'fullName') err = getFullNameError(trimmed);
       else if (field === 'email') err = getEmailError(trimmed);
       else if (field === 'mobile') err = getMobileError(trimmed);
+      else if (field === 'course') err = getCourseError(trimmed);
       else if (field === 'experience') err = getExperienceError(trimmed);
       setErrors(prevErr => ({ ...prevErr, [field]: err }));
       return updated;
@@ -190,6 +204,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       fullName: values.fullName.trim(),
       email: values.email.trim(),
       mobile: values.mobile.trim(),
+      course: values.course.trim(),
       experience: values.experience.trim(),
       website: values.website.trim(),
     };
@@ -198,12 +213,14 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
     const nameErr = getFullNameError(trimmedValues.fullName);
     const emailErr = getEmailError(trimmedValues.email);
     const mobileErr = getMobileError(trimmedValues.mobile);
+    const courseErr = getCourseError(trimmedValues.course);
     const expErr = getExperienceError(trimmedValues.experience);
 
     const newErrors: FormErrors = {
       fullName: nameErr,
       email: emailErr,
       mobile: mobileErr,
+      course: courseErr,
       experience: expErr,
     };
     setErrors(newErrors);
@@ -212,6 +229,7 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
     if (nameErr) invalidFields.push('full-name');
     if (emailErr) invalidFields.push('email');
     if (mobileErr) invalidFields.push('mobile');
+    if (courseErr) invalidFields.push('course');
     if (expErr) invalidFields.push('experience');
 
     if (invalidFields.length > 0) {
@@ -241,14 +259,16 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
       '/python-full-stack': 'Python Full Stack',
       '/gen-ai': 'Gen AI',
     };
-    const detectedCourse = courseMap[currentPath] || 'Python';
+    const selectedCourse = trimmedValues.course || courseMap[currentPath] || 'Python';
 
     const payload = {
       name: trimmedValues.fullName,
       email: trimmedValues.email,
       phone: normalizeIndiaPhone(trimmedValues.mobile),
+      course: selectedCourse,
       pythonStartingPoint: trimmedValues.experience,
-      message: `Course: ${detectedCourse}`,
+      experienceLevel: trimmedValues.experience,
+      message: `Course: ${selectedCourse}`,
       countryCode: '+91',
       timezone: 'Asia/Kolkata',
       route: currentPath,
@@ -295,6 +315,9 @@ export function FormModalProvider({ children }: { children: React.ReactNode }) {
             if (data.errors.name?._errors?.[0]) serverErrors.fullName = data.errors.name._errors[0];
             if (data.errors.email?._errors?.[0]) serverErrors.email = data.errors.email._errors[0];
             if (data.errors.phone?._errors?.[0]) serverErrors.mobile = data.errors.phone._errors[0];
+            if (data.errors.course?._errors?.[0]) serverErrors.course = data.errors.course._errors[0];
+            if (data.errors.experienceLevel?._errors?.[0])
+              serverErrors.experience = data.errors.experienceLevel._errors[0];
             if (data.errors.pythonStartingPoint?._errors?.[0])
               serverErrors.experience = data.errors.pythonStartingPoint._errors[0];
 

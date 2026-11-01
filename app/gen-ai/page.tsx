@@ -9,9 +9,9 @@ import EnquiryDialogModal from '@/components/EnquiryDialogModal';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI — Gen AI',
+  title: 'CodeistaAI — Gen AI Course | Prompts, RAG & Evaluation',
   description:
-    'Explore a proposed Gen AI learning journey from prompting to retrieval and evaluation with CodeistaAI.',
+    'Explore prompt engineering, embeddings, retrieval-augmented generation (RAG), and evaluation to build responsible AI-powered tools.',
   robots: {
     index: false,
     follow: false,
@@ -35,26 +35,28 @@ export default function GenAIPage() {
         <section className="hero dark cinematic-hero" aria-labelledby="hero-title">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">GEN AI / BUILD YOUR NEXT CHAPTER</p>
+              <p className="eyebrow">
+                <span className="status-dot" aria-hidden="true"></span> APPLIED AI · PROMPTS, RETRIEVAL &amp; EVALUATION
+              </p>
               <h1 id="hero-title">
-                Less guessing.
-                <br />
-                More <span className="lime">creating.</span>
+                Build thoughtful AI tools.
+                <br className="hide-mobile" />
+                <span className="lime">Evaluate every output.</span>
               </h1>
-              <p className="hero-sub">Turn your ideas into AI-powered tools.</p>
+              <p className="hero-sub">Turn language models into reliable, grounded applications.</p>
               <p className="muted hero-description">
-                Explore how prompts, models, and retrieval work together. Build thoughtful AI
-                applications and learn to evaluate their outputs.
+                Learn how to structure prompts, retrieve relevant documents with vector embeddings,
+                and rigorously evaluate model answers. Understand both the power and limitations of generative AI.
               </p>
               <div className="cta-group">
                 <EnquiryCTA className="button">
-                  Explore Gen AI <span aria-hidden="true">↗</span>
+                  Enquire about this course
                 </EnquiryCTA>
                 <a className="text-link" href="#curriculum">
-                  See the learning path <span aria-hidden="true">↓</span>
+                  View curriculum <span aria-hidden="true">↓</span>
                 </a>
               </div>
-              <p className="hero-note">Gen AI learning</p>
+              <p className="hero-note">Modern AI workflows · RAG architectures · Responsible evaluation</p>
             </div>
 
             <div className="hero-visual">
@@ -67,7 +69,7 @@ export default function GenAIPage() {
                 <div className="orbit orbit-two"></div>
                 <div className="orbit orbit-three"></div>
                 <div className="orbit-label top-label">
-                  <i></i> ONE LANGUAGE. OPEN POSSIBILITIES.
+                  <i></i> CONTEXT-AWARE GENERATION
                 </div>
                 <div className="python-core">
                   <span className="core-bracket">{'{'}</span>
@@ -76,40 +78,40 @@ export default function GenAIPage() {
                   </span>
                   <span className="core-bracket">{'}'}</span>
                 </div>
-                <span className="floating-label label-a">01 / THINK</span>
-                <span className="floating-label label-b">02 / BUILD</span>
-                <span className="floating-label label-c">03 / ITERATE</span>
+                <span className="floating-label label-a">01 / PROMPT</span>
+                <span className="floating-label label-b">02 / RETRIEVE</span>
+                <span className="floating-label label-c">03 / EVALUATE</span>
                 <div className="stage-caption">
-                  YOUR IDEAS BELONG HERE <span>↗</span>
+                  GEN AI WORKSPACE
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-one">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>01 / LOGIC</span>
+                    <i></i><i></i><i></i><span>01 / SCHEMA</span>
                   </div>
-                  <code>prompt = task + context<br />draft = generate(prompt)</code>
+                  <code>prompt = task + schema<br />draft = generate(prompt)</code>
                   <div className="slab-foot">
-                    <span>GEN AI WORKSPACE</span>
-                    <b>↗</b>
+                    <span>STRUCTURED OUTPUT</span>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-two">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>02 / EXPERIMENT</span>
+                    <i></i><i></i><i></i><span>02 / RAG PIPELINE</span>
                   </div>
-                  <code>sources = retrieve(question)<br />answer = respond(sources)</code>
+                  <code>docs = vector_db.query(q)<br />grounded = answer(docs)</code>
                   <div className="slab-foot">
-                    <span>GEN AI WORKSPACE</span>
-                    <b>↗</b>
+                    <span>RETRIEVAL PIPELINE</span>
+                    <b>→</b>
                   </div>
                 </div>
                 <div aria-hidden="true" className="scene-slab slab-three">
                   <div className="slab-dots">
-                    <i></i><i></i><i></i><span>03 / CREATE</span>
+                    <i></i><i></i><i></i><span>03 / VERIFY</span>
                   </div>
-                  <code>result = evaluate(answer)<br />review(result)</code>
+                  <code>score = evaluate(grounded)<br />guardrails.verify(score)</code>
                   <div className="slab-foot">
-                    <span>GEN AI WORKSPACE</span>
-                    <b>↗</b>
+                    <span>EVALUATION ENGINE</span>
+                    <b>→</b>
                   </div>
                 </div>
               </div>
@@ -121,92 +123,98 @@ export default function GenAIPage() {
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">01 / THE APPROACH</p>
+                <p className="eyebrow">01 / THE EVALUATION-FIRST APPROACH</p>
                 <h2 id="approach-title">
-                  One focus.
+                  Context matters.
                   <br />
-                  A whole new toolkit.
+                  Verification comes first.
                 </h2>
               </div>
               <p>
-                A proposed Gen AI learning approach: understand the pieces, experiment with them,
-                and put them to work.
+                Generative AI is only as useful as its grounding and reliability.
+                We teach you how to supply relevant context, constrain outputs, and test for hallucinations.
               </p>
             </div>
 
             <div className="pillars">
               <article>
                 <div className="pillar-top">
-                  <span className="number">01 / UNDERSTAND</span>
+                  <span className="number">01 / PROMPT</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     {'{ }'}
                   </span>
                 </div>
-                <h3>Start with the right question.</h3>
-                <p>Define the task, the context, and what a helpful response should look like.</p>
+                <h3>Structure the prompt.</h3>
+                <p>Move past vague queries. Learn few-shot patterns, system constraints, and schema enforcement.</p>
                 <div className="pillar-example">
-                  <span className="example-label">START WITH A QUESTION</span>
+                  <span className="example-label">STRUCTURED PROMPTING</span>
                   <code>
-                    prompt = task + context
+                    messages = [
                     <br />
-                    draft = generate(prompt)
+                    &nbsp;&nbsp;&#123;&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: schema&#125;,
+                    <br />
+                    &nbsp;&nbsp;&#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: query&#125;
+                    <br />
+                    ]
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Think clearly</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>Prompt design</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article className="pillar-featured">
                 <div className="pillar-top">
-                  <span className="number">02 / EXPERIMENT</span>
+                  <span className="number">02 / RETRIEVE</span>
                   <span className="pillar-symbol" aria-hidden="true">
                     &gt;_
                   </span>
                 </div>
-                <h3>Test what comes back.</h3>
-                <p>Compare outputs. Check the facts. Improve the prompt and measure the difference.</p>
+                <h3>Ground with context.</h3>
+                <p>Chunk real documents, generate embeddings, and retrieve only the facts needed to answer.</p>
                 <div className="pillar-example">
-                  <span className="example-label">MAKE THE CONNECTION</span>
+                  <span className="example-label">VECTOR RETRIEVAL</span>
                   <code>
-                    sources = retrieve(question)
+                    chunks = split_docs(documents)
                     <br />
-                    answer = respond(sources)
+                    context = vector_store.search(q, k=3)
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Learn by trying</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>RAG foundations</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
 
               <article>
                 <div className="pillar-top">
-                  <span className="number">03 / CREATE</span>
+                  <span className="number">03 / EVALUATE</span>
                   <span className="pillar-symbol" aria-hidden="true">
-                    ↗
+                    →
                   </span>
                 </div>
-                <h3>Make AI useful.</h3>
-                <p>Combine model interactions and clear safeguards in a practical prototype.</p>
+                <h3>Measure and guardrail.</h3>
+                <p>Check answers against source documents. Learn benchmark metrics to prevent hallucination.</p>
                 <div className="pillar-example">
-                  <span className="example-label">BRING IT TOGETHER</span>
+                  <span className="example-label">SOURCE CHECK</span>
                   <code>
-                    result = evaluate(answer)
+                    groundedness = verify_citations(
                     <br />
-                    review(result)
+                    &nbsp;&nbsp;answer, context
+                    <br />
+                    )
                   </code>
                 </div>
                 <div className="pillar-bottom">
-                  <span>Connect the pieces</span>
-                  <span aria-hidden="true">↗</span>
+                  <span>Evaluation &amp; safety</span>
+                  <span aria-hidden="true">→</span>
                 </div>
               </article>
             </div>
 
             <p className="approach-caption">
-              A proposed learning approach <span aria-hidden="true">/</span> Illustrative pseudocode
+              ThinkCode Approach <span aria-hidden="true">/</span> Applied generative AI with strict evaluation
             </p>
           </div>
         </section>
@@ -220,24 +228,23 @@ export default function GenAIPage() {
             <div className="curriculum-intro">
               <p className="eyebrow">02 / YOUR LEARNING PATH</p>
               <h2 id="curriculum-title">
-                From the first line
+                From prompt engineering
                 <br />
-                to your next idea.
+                to evaluation.
               </h2>
               <p>
-                A proposed path through Gen AI. Topics below are illustrative and await confirmation
-                from CodeistaAI.
+                A structured path through generative models, vector embeddings, RAG pipelines, and output verification.
               </p>
               <div className="draft-note">
                 <span aria-hidden="true">↳</span>
                 <p>
-                  Illustrative curriculum.
+                  Structured core syllabus.
                   <br />
-                  Final syllabus and prerequisites to be confirmed by CodeistaAI.
+                  Batch schedules and duration to be confirmed upon enquiry.
                 </p>
               </div>
               <EnquiryCTA className="text-link dark-link">
-                Explore Gen AI <span aria-hidden="true">↗</span>
+                Enquire about this course
               </EnquiryCTA>
             </div>
 
@@ -254,16 +261,16 @@ export default function GenAIPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Explore how language models generate responses and where their limitations matter.
+                    Understand how large language models predict tokens, handle context windows, and manage parameters.
                   </p>
                   <ul className="chips">
-                    <li>LLMs</li>
-                    <li>Tokens</li>
-                    <li>Context</li>
-                    <li>Limitations</li>
+                    <li>Tokens &amp; context windows</li>
+                    <li>Temperature &amp; top-p</li>
+                    <li>Model architectures</li>
+                    <li>API authentication</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Compare sample model responses for a simple task.
+                    <strong>Try it:</strong> Connect to an LLM API and inspect token usage and latency.
                   </p>
                 </div>
               </details>
@@ -280,16 +287,16 @@ export default function GenAIPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Give clear instructions, useful context, and output constraints you can evaluate.
+                    Write structured prompt templates that reliably produce valid JSON schemas for application code.
                   </p>
                   <ul className="chips">
-                    <li>Prompt design</li>
-                    <li>Examples</li>
-                    <li>JSON output</li>
-                    <li>Validation</li>
+                    <li>Zero-shot &amp; few-shot</li>
+                    <li>Role-based messaging</li>
+                    <li>JSON schema enforcement</li>
+                    <li>Pydantic parsing</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Design a prompt for a structured summary.
+                    <strong>Try it:</strong> Build a tool that extracts structured tabular data from unformatted text.
                   </p>
                 </div>
               </details>
@@ -298,7 +305,7 @@ export default function GenAIPage() {
                 <summary>
                   <span className="module-no">03</span>
                   <span>
-                    Ground answers in context<small>Embeddings &amp; retrieval</small>
+                    Ground answers in context<small>Embeddings &amp; retrieval (RAG)</small>
                   </span>
                   <span className="expand" aria-hidden="true">
                     +
@@ -306,16 +313,16 @@ export default function GenAIPage() {
                 </summary>
                 <div className="module-body">
                   <p>
-                    Explore how retrieval can connect an AI application with relevant source material.
+                    Convert text documents into vector embeddings and retrieve factual passages for answering queries.
                   </p>
                   <ul className="chips">
-                    <li>Embeddings</li>
-                    <li>Retrieval</li>
-                    <li>RAG</li>
-                    <li>Source references</li>
+                    <li>Text chunking strategies</li>
+                    <li>Vector embeddings</li>
+                    <li>Similarity search</li>
+                    <li>RAG integration</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Prototype a question-answer flow over sample documents.
+                    <strong>Try it:</strong> Build a question-answering assistant over your own course notes.
                   </p>
                 </div>
               </details>
@@ -331,18 +338,15 @@ export default function GenAIPage() {
                   </span>
                 </summary>
                 <div className="module-body">
-                  <p>
-                    Connect the pieces while considering privacy, failure cases, and human review.
-                  </p>
+                  <p>Systematically evaluate answers, trace source references, and build user guardrails.</p>
                   <ul className="chips">
-                    <li>Evaluation</li>
-                    <li>Guardrails</li>
-                    <li>Privacy</li>
-                    <li>Human review</li>
+                    <li>Hallucination detection</li>
+                    <li>Source attribution</li>
+                    <li>Benchmarking answers</li>
+                    <li>Responsible AI safeguards</li>
                   </ul>
                   <p className="practice">
-                    <strong>Try it:</strong> Test a small assistant against expected and unexpected
-                    inputs.
+                    <strong>Try it:</strong> Build an automated evaluation script that grades model groundedness.
                   </p>
                 </div>
               </details>
@@ -358,81 +362,75 @@ export default function GenAIPage() {
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <p className="eyebrow lime">03 / PUT AI TO WORK</p>
+                <p className="eyebrow lime">03 / APPLIED AI PROJECTS</p>
                 <h2 id="projects-title">
-                  Don&apos;t just read it.
+                  Build tools with
                   <br />
-                  Make it do something.
+                  grounded outputs.
                 </h2>
               </div>
               <p className="muted">
-                Example project directions, not confirmed course deliverables. A glimpse of what
-                Gen AI can help you explore.
+                Practical projects exploring prompt engineering, vector retrieval pipelines, and output verification.
               </p>
             </div>
 
             <div className="project-grid">
               <article className="project-card">
                 <div className="project-visual mono">
-                  <span className="file-label">organize.py</span>
+                  <span className="file-label">rag_pipeline.py</span>
                   <div className="file-row">
-                    <span>notes.txt</span>
-                    <span className="lime">→ /documents</span>
+                    <span>source_doc.pdf</span>
+                    <span className="lime">Indexed 48 chunks</span>
                   </div>
                   <div className="file-row">
-                    <span>photo.png</span>
-                    <span className="lime">→ /images</span>
+                    <span>user_query</span>
+                    <span className="lime">3 chunks matched</span>
                   </div>
                   <div className="file-row">
-                    <span>data.csv</span>
-                    <span className="lime">→ /datasets</span>
+                    <span>grounded_answer</span>
+                    <span className="lime">Citations verified</span>
                   </div>
                 </div>
                 <div className="project-info">
-                  <span className="eyebrow">APPLICATION EXPLORATION</span>
-                  <h3>Ask your documents.</h3>
-                  <p>
-                    Explore an assistant that retrieves relevant passages from sample documents and
-                    shows its sources.
-                  </p>
-                  <span className="project-tag">Illustrative project · scope to be confirmed</span>
+                  <span className="eyebrow">RETRIEVAL SYSTEM</span>
+                  <h3>Document QA assistant.</h3>
+                  <p>Build a retrieval-augmented tool that answers questions strictly using verified private documents.</p>
+                  <span className="project-tag">Embeddings · Vector Search · Citations</span>
                 </div>
               </article>
 
               <article className="project-card">
                 <div className="project-visual mono">
                   <div className="data-head">
-                    <span>sample.csv</span>
-                    <span className="warm">ILLUSTRATIVE DATA</span>
+                    <span>evaluation_report.json</span>
+                    <span className="warm">BENCHMARK TEST</span>
                   </div>
                   <div className="bar-row">
-                    <span>A</span>
-                    <div style={{ '--bar': '76%' } as React.CSSProperties}></div>
+                    <span>Groundedness</span>
+                    <div style={{ '--bar': '92%' } as React.CSSProperties}></div>
                   </div>
                   <div className="bar-row">
-                    <span>B</span>
-                    <div style={{ '--bar': '48%' } as React.CSSProperties}></div>
+                    <span>Relevance</span>
+                    <div style={{ '--bar': '88%' } as React.CSSProperties}></div>
                   </div>
                   <div className="bar-row">
-                    <span>C</span>
-                    <div style={{ '--bar': '90%' } as React.CSSProperties}></div>
+                    <span>Hallucination</span>
+                    <div style={{ '--bar': '8%' } as React.CSSProperties}></div>
                   </div>
                 </div>
                 <div className="project-info">
-                  <span className="eyebrow">APPLICATION EXPLORATION</span>
-                  <h3>Give long reads a shortcut.</h3>
-                  <p>
-                    Prototype a summarizer with structured outputs and a human review step.
-                  </p>
-                  <span className="project-tag">Illustrative project · scope to be confirmed</span>
+                  <span className="eyebrow">EVALUATION HARNESS</span>
+                  <h3>Output quality validator.</h3>
+                  <p>Measure answer faithfulness against source context and flag unsupported claims automatically.</p>
+                  <span className="project-tag">Evaluation · Guardrails · Metrics</span>
                 </div>
               </article>
             </div>
 
             <div className="project-bottom">
-              <p>Your next project could start with a problem you notice every day.</p>
+              <p>Responsible AI development begins with measuring correctness and citing sources.</p>
               <a className="text-link" href="#curriculum">
-                Explore the foundations <span aria-hidden="true">↗</span>
+                View curriculum <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
@@ -441,91 +439,78 @@ export default function GenAIPage() {
         <section className="light section" id="faq" aria-labelledby="faq-title">
           <div className="wrap faq-grid">
             <div>
-              <p className="eyebrow">04 / A LITTLE CLARITY</p>
+              <p className="eyebrow">04 / QUESTIONS &amp; CLARITY</p>
               <h2 id="faq-title">
                 Before you
                 <br />
                 take the next step.
               </h2>
-              <p className="faq-intro">A few things to know about this Gen AI course.</p>
+              <p className="faq-intro">Helpful answers about the Gen AI &amp; Applied LLMs course.</p>
             </div>
 
             <div className="faqs">
               <details>
                 <summary>
-                  What does this Gen AI page cover?
+                  What does this Gen AI course cover?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  This page explores a proposed Gen AI learning path. Final curriculum, prerequisites,
-                  and delivery details are to be confirmed.
+                  This course covers LLM API fundamentals, structured prompt engineering, text embeddings,
+                  retrieval-augmented generation (RAG) architecture, and evaluating model output reliability.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Do I need coding experience?
+                  What starting knowledge is recommended?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  The proposed learning path begins with fundamentals. Eligibility, target audience,
-                  and any prerequisites are awaiting confirmation from CodeistaAI.
+                  Basic programming experience in Python (data structures, functions, API calls) is recommended.
+                  If you are brand new to coding, we encourage taking our Python Foundations course first.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  What are the fees and schedule?
+                  What are the duration and schedule options?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Course price, duration, delivery format, and start dates are to be confirmed. This
-                  preview does not accept bookings or payments.
+                  Course duration, batch timings, and delivery formats are being finalized for upcoming cohorts.
+                  Submitting an enquiry allows our team to share the confirmed schedule and format options with you.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Who teaches the course?
+                  How is AI used in this course?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Instructor details are to be confirmed. No instructor profile, credential, or
-                  affiliation has been supplied for this preview.
+                  You learn both how to build with AI and how to use it responsibly. We emphasize understanding
+                  model mechanics, grounding outputs in factual documents, and verifying code rather than trusting it blindly.
                 </p>
               </details>
 
               <details>
                 <summary>
-                  Are certificates or placements included?
+                  What happens when I submit an enquiry?
                   <span className="expand" aria-hidden="true">
                     +
                   </span>
                 </summary>
                 <p>
-                  Certification and placement support details have not been provided. This preview
-                  makes no promises about certificates, employment, or career outcomes.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Will the form contact CodeistaAI?
-                  <span className="expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <p>
-                  Yes. Submitting the enquiry form sends your details to the CodeistaAI team so we
-                  can provide you with course information and next steps.
+                  Submitting an enquiry connects you directly with the CodeistaAI team. We share full syllabus details,
+                  answer specific questions about batch schedules and prerequisites, and guide you on the best path.
                 </p>
               </details>
             </div>
@@ -535,33 +520,37 @@ export default function GenAIPage() {
         <section className="enquire section" id="enquire" aria-labelledby="enquire-title">
           <div className="wrap enquiry-grid">
             <div className="enquiry-copy">
-              <p className="eyebrow">Explore what learning Gen AI could look like for you.</p>
+              <p className="eyebrow">05 / COURSE ENQUIRY</p>
               <h2 id="enquire-title">
-                Curiosity is
+                Enquire about
                 <br />
-                a great first step.
+                Gen AI &amp; Applied LLMs.
               </h2>
-              <p>Explore what learning Python could look like for you.</p>
+              <p>Submit your details to receive full syllabus information and upcoming batch schedules.</p>
 
               <dl className="course-meta">
                 <div>
                   <dt>Course</dt>
-                  <dd>Gen AI</dd>
+                  <dd>Gen AI &amp; Applied LLMs</dd>
                 </div>
                 <div>
-                  <dt>Price &amp; duration</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Prerequisites</dt>
+                  <dd>Basic Python recommended</dd>
                 </div>
                 <div>
-                  <dt>Format &amp; start date</dt>
-                  <dd>To be confirmed</dd>
+                  <dt>Duration &amp; schedule</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
+                </div>
+                <div>
+                  <dt>Delivery format</dt>
+                  <dd>To be confirmed (Ask upon enquiry)</dd>
                 </div>
               </dl>
 
               <div className="preview-note">
                 <strong>Course Enquiry</strong>
                 <p>
-                  Submit your details to receive full syllabus information and next batch schedules.
+                  Connect directly with the CodeistaAI team for curriculum outlines, batch options, and learning guidance.
                 </p>
               </div>
             </div>
@@ -582,14 +571,14 @@ export default function GenAIPage() {
               height={26}
             />
           </Link>
-          <p>A new chapter, built with Gen AI.</p>
+          <p>Think. Code. Build. — Programming logic first, AI as a tool.</p>
           <a className="text-link" href="#main">
             Back to top <span aria-hidden="true">↑</span>
           </a>
         </div>
         <div className="wrap footer-bottom">
           <span>CodeistaAI</span>
-          <span>Contact &amp; legal information: to be provided</span>
+          <span>Course details, prerequisites, and schedules subject to confirmation.</span>
         </div>
       </footer>
 

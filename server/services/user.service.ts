@@ -76,9 +76,14 @@ export class UserService {
       }
     }
 
+    const expLevel = data.experienceLevel || data.pythonStartingPoint || 'new';
+    const chosenCourse = data.course || (data.message ? data.message.replace(/^Course:\s*/i, '') : 'Python');
+
     const courseEnquiryData = {
-      pythonStartingPoint: data.pythonStartingPoint,
-      ...(data.message ? { message: data.message } : {}),
+      course: chosenCourse,
+      experienceLevel: expLevel,
+      pythonStartingPoint: expLevel,
+      message: data.message || `Course: ${chosenCourse}`,
     };
 
     const userData = {

@@ -8,9 +8,9 @@ import ScrollReveal from '@/components/ScrollReveal';
 import './home.css';
 
 export const metadata: Metadata = {
-  title: 'CodeistaAI — Choose your next chapter',
+  title: 'CodeistaAI — Think. Code. Build. | Programming Logic First',
   description:
-    'Explore Python, Python Full Stack and Gen AI with CodeistaAI. Choose your next learning path.',
+    'Learn to break problems into clear steps, write code, and build practical projects—with AI used as a tool to support learning.',
   robots: {
     index: false,
     follow: false,
@@ -32,423 +32,102 @@ export default function HomePage() {
       <HeaderNav variant="home" />
 
       <main id="main">
-        <section className="hero wrap">
+        {/* Hero Section */}
+        <section className="hero wrap" aria-labelledby="hero-title">
           <p className="eyebrow">
-            <span className="dot"></span> THREE PATHS. YOUR NEXT CHAPTER.
+            <span className="dot" aria-hidden="true"></span> PROGRAMMING LOGIC FIRST · AI AS A TOOL
           </p>
-          <h1>
-            Start with curiosity.
-            <br />
-            Build <span>what comes next.</span>
+          <h1 id="hero-title">
+            Think. Code. <span className="hero-build">Build.</span>
           </h1>
           <p className="intro">
-            From your first line of Python to connected applications and AI-powered ideas.
-            Choose a path that speaks to you.
+            Learn to break problems into clear steps, write code, and build practical
+            projects—with AI used as a tool to support learning.
           </p>
-          <a className="button" href="#courses">
-            Explore the courses <span aria-hidden="true">↗</span>
-          </a>
+          <div className="hero-cta-wrap">
+            <a className="button" href="#courses">
+              Explore courses <span aria-hidden="true">↓</span>
+            </a>
+          </div>
 
-          <div className="course-nexus">
-            <div className="hero-whisper whisper-left" aria-hidden="true">
-              <span className="whisper-label">
-                <i></i> AN IDEA TAKES SHAPE
-              </span>
-              <code>
-                <span>def</span> next_chapter():<br />    return possibilities
-              </code>
-              <div className="whisper-track">
-                <b></b>
-                <b></b>
-                <b></b>
-                <span>curiosity → code</span>
+          {/* Restrained Learning Process Visual */}
+          <div className="learning-nexus" aria-label="Learning progression overview">
+            <div className="learning-step-card">
+              <div className="step-badge">01 / THINK</div>
+              <h3>Deconstruct the logic</h3>
+              <p>Break complex problems into clear, step-by-step algorithms before typing syntax.</p>
+              <div className="step-code">
+                <code>
+                  <span className="code-comment"># 01. Break down problem</span>
+                  <br />
+                  <span className="code-purple">def</span> plan_steps(problem):
+                  <br />
+                  &nbsp;&nbsp;<span className="code-purple">return</span> [clarify, decompose, solve]
+                </code>
               </div>
             </div>
-            <div className="hero-whisper whisper-right" aria-hidden="true">
-              <span className="whisper-label">
-                CONNECT THE POSSIBILITIES <i></i>
-              </span>
-              <div className="whisper-symbols">
-                <span>{'{ }'}</span>
-                <em>···</em>
-                <span>⌘</span>
-                <em>···</em>
-                <span>✧</span>
+
+            <div className="learning-step-connector" aria-hidden="true">
+              →
+            </div>
+
+            <div className="learning-step-card is-active">
+              <div className="step-badge">02 / CODE</div>
+              <h3>Write clean code</h3>
+              <p>Practice variables, loops, functions, and data structures with immediate feedback.</p>
+              <div className="step-code">
+                <code>
+                  <span className="code-comment"># 02. Implement the logic</span>
+                  <br />
+                  <span className="code-purple">for</span> step <span className="code-purple">in</span> plan_steps(task):
+                  <br />
+                  &nbsp;&nbsp;code = write_solution(step)
+                </code>
               </div>
-              <div className="whisper-caption">learn. experiment. create.</div>
             </div>
-            <div aria-hidden="true" className="nexus-glow"></div>
-            <div aria-hidden="true" className="nexus-source">
-              &gt;_
+
+            <div className="learning-step-connector" aria-hidden="true">
+              →
             </div>
-            <svg
-              aria-hidden="true"
-              className="nexus-traces"
-              preserveAspectRatio="none"
-              viewBox="0 0 1000 230"
-            >
-              <defs>
-                <linearGradient id="trace" x1="0" x2="0" y1="0" y2="1">
-                  <stop stopColor="#d6b5ff"></stop>
-                  <stop offset="1" stopColor="#905bf4" stopOpacity=".3"></stop>
-                </linearGradient>
-              </defs>
-              <g fill="none" stroke="url(#trace)" strokeWidth="1.5">
-                <path d="M500 0 V40 Q500 75 450 75 H220 Q170 75 170 115 V230"></path>
-                <path d="M500 0 V230"></path>
-                <path d="M500 0 V40 Q500 75 550 75 H780 Q830 75 830 115 V230"></path>
-              </g>
-              <g fill="#d6b5ff">
-                <circle cx="170" cy="150" r="3"></circle>
-                <circle cx="500" cy="110" r="3"></circle>
-                <circle cx="830" cy="150" r="3"></circle>
-              </g>
-            </svg>
-            <div className="nexus-options">
-              <Link href="/python">
-                <span className="nexus-index">01 / FOUNDATIONS</span>
-                <div>
-                  <span className="nexus-mark">py_</span>
-                  <span aria-hidden="true" className="nexus-arrow">
-                    ↗
-                  </span>
-                </div>
-                <strong>Python</strong>
-                <small>Start with the logic.</small>
-              </Link>
-              <Link href="/python-full-stack">
-                <span className="nexus-index">02 / APPLICATIONS</span>
-                <div>
-                  <span className="nexus-mark">web_</span>
-                  <span aria-hidden="true" className="nexus-arrow">
-                    ↗
-                  </span>
-                </div>
-                <strong>Python Full Stack</strong>
-                <small>Connect every layer.</small>
-              </Link>
-              <Link href="/gen-ai">
-                <span className="nexus-index">03 / POSSIBILITIES</span>
-                <div>
-                  <span className="nexus-mark">ai_</span>
-                  <span aria-hidden="true" className="nexus-arrow">
-                    ↗
-                  </span>
-                </div>
-                <strong>Gen AI</strong>
-                <small>Build with intelligence.</small>
-              </Link>
+
+            <div className="learning-step-card">
+              <div className="step-badge">03 / BUILD</div>
+              <h3>Ship practical tools</h3>
+              <p>Combine modules into working tools, using AI to test edge cases and review code.</p>
+              <div className="step-code">
+                <code>
+                  <span className="code-comment"># 03. AI as a learning tool</span>
+                  <br />
+                  project = build_app(code)
+                  <br />
+                  ai_assistant.review_and_explain(project)
+                </code>
+              </div>
             </div>
           </div>
 
           <div className="hero-bottom">
-            <span>THINK CLEARLY.</span>
-            <span>CONNECT THE PIECES.</span>
-            <span>MAKE SOMETHING USEFUL.</span>
+            <span>01 / THINK THE LOGIC</span>
+            <span>02 / CODE WITH CONFIDENCE</span>
+            <span>03 / BUILD WITH AI AS A TOOL</span>
           </div>
         </section>
 
-        <section className="section wrap" id="courses">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">01 / CHOOSE YOUR DIRECTION</p>
-              <h2>
-                Different starting points.
-                <br />
-                The same drive to build.
-              </h2>
-            </div>
-            <p>
-              Start with the fundamentals, connect an entire application, or explore generative AI.
-              Each course has its own space to discover more.
-            </p>
-          </div>
-
-          <div className="course-grid">
-            <Link className="course-card" href="/python">
-              <div className="card-top">
-                <span>01 / EXPLORE</span>
-                <span aria-hidden="true">↗</span>
-              </div>
-              <div aria-hidden="true" className="course-symbol">
-                py_
-              </div>
-              <h3>Python</h3>
-              <p className="card-lead">Start with the foundations.</p>
-              <p>
-                Turn curiosity into code. Explore the logic, practice the basics, and build useful
-                Python scripts.
-              </p>
-              <div className="card-bottom">
-                <span>Variables · Functions · Files</span>
-                <strong>Explore course ↗</strong>
-              </div>
-            </Link>
-
-            <Link className="course-card" href="/python-full-stack">
-              <div className="card-top">
-                <span>02 / EXPLORE</span>
-                <span aria-hidden="true">↗</span>
-              </div>
-              <div aria-hidden="true" className="course-symbol">
-                web_
-              </div>
-              <h3>Python Full Stack</h3>
-              <p className="card-lead">Connect the whole picture.</p>
-              <p>
-                Bring the interface, Python backend, and data together. Explore web applications,
-                APIs, SQL, and pandas.
-              </p>
-              <div className="card-bottom">
-                <span>Frontend · APIs · pandas</span>
-                <strong>Explore course ↗</strong>
-              </div>
-            </Link>
-
-            <Link className="course-card" href="/gen-ai">
-              <div className="card-top">
-                <span>03 / EXPLORE</span>
-                <span aria-hidden="true">↗</span>
-              </div>
-              <div aria-hidden="true" className="course-symbol">
-                ai_
-              </div>
-              <h3>Gen AI</h3>
-              <p className="card-lead">Make room for new ideas.</p>
-              <p>
-                Explore how prompts, models, and retrieval work together. Build thoughtful AI tools
-                and learn to evaluate their outputs.
-              </p>
-              <div className="card-bottom">
-                <span>Prompts · RAG · Evaluation</span>
-                <strong>Explore course ↗</strong>
-              </div>
-            </Link>
-          </div>
-        </section>
-
-        <section className="course-deep section wrap">
-          <div className="feature-row">
-            <div className="feature-copy">
-              <p className="eyebrow">FOUNDATIONS / PYTHON</p>
-              <h2>
-                Small first steps.
-                <br />
-                Real understanding.
-              </h2>
-              <p>
-                Start with the logic behind the code. Explore variables, functions and files, then
-                connect them in a useful script.
-              </p>
-              <Link className="feature-link" href="/python">
-                Discover Python <span>↗</span>
-              </Link>
-              <div className="mini-tags">
-                <span>Understand the logic</span>
-                <span>Learn by trying</span>
-              </div>
-            </div>
-
-            <div className="code-window">
-              <div className="window-head">
-                <span className="window-dots">● ● ●</span>
-                <span>first_step.py</span>
-                <span>PYTHON</span>
-              </div>
-              <div className="code-lines">
-                <span className="code-comment"># Every idea starts somewhere.</span>
-                <br />
-                <span className="code-purple">ideas</span> = [
-                <br />
-                &nbsp;&nbsp;&quot;understand the basics&quot;,
-                <br />
-                &nbsp;&nbsp;&quot;automate a small task&quot;,
-                <br />
-                &nbsp;&nbsp;&quot;build something useful&quot;
-                <br />
-                ]
-                <br />
-                <br />
-                <span className="code-purple">for</span> idea <span className="code-purple">in</span> ideas:
-                <br />
-                &nbsp;&nbsp;print(f&quot;Let&apos;s &#123;idea&#125;.&quot;)
-              </div>
-              <div className="code-output">
-                <span>OUTPUT / ILLUSTRATIVE</span>
-                <p>
-                  › Let&apos;s build something useful.<i></i>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="feature-pair">
-            <div>
-              <h3>Start with a question.</h3>
-              <p>Turn a problem into small, clear steps you can reason about.</p>
-              <div className="mini-flow">
-                <span>Question</span>
-                <b>→</b>
-                <span>Logic</span>
-                <b>→</b>
-                <span>Code</span>
-              </div>
-            </div>
-            <div>
-              <h3>Make the next version better.</h3>
-              <p>Read the output, find the bug, and try another approach.</p>
-              <div className="iteration">
-                <span>idea.py</span>
-                <div className="iteration-line"></div>
-                <span className="iteration-end">next_version.py ↗</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="stack-section section">
+        {/* Methodology / Approach Section */}
+        <section className="approach section" id="approach" aria-labelledby="approach-title">
           <div className="wrap">
             <div className="section-head">
               <div>
-                <p className="eyebrow">CONNECTIONS / PYTHON FULL STACK</p>
-                <h2>
-                  One application.
-                  <br />
-                  Every layer connected.
+                <p className="eyebrow">01 / THE LEARNING METHOD</p>
+                <h2 id="approach-title">
+                  Programming logic first.
+                  <br className="hide-mobile" />
+                  AI as a learning tool.
                 </h2>
               </div>
               <p>
-                Move between the interface, the backend and the data. Explore how the parts work
-                together to create a complete experience.
-              </p>
-            </div>
-
-            <div className="stack-board">
-              <div className="window-head">
-                <span>PROJECT / YOUR NEXT APPLICATION</span>
-                <span>ILLUSTRATIVE ARCHITECTURE</span>
-              </div>
-              <div className="stack-layers">
-                <div>
-                  <span className="layer-no">01 / INTERFACE</span>
-                  <h3>What people see.</h3>
-                  <div className="mini-browser">
-                    <div></div>
-                    <p></p>
-                    <p></p>
-                    <span className="mock-button">Preview</span>
-                  </div>
-                  <small>HTML · CSS · JavaScript</small>
-                </div>
-                <b aria-hidden="true">↔</b>
-                <div>
-                  <span className="layer-no">02 / BACKEND</span>
-                  <h3>How it works.</h3>
-                  <div className="api-lines">
-                    <span>
-                      <em>GET</em> /tasks
-                    </span>
-                    <span>
-                      <em>POST</em> /tasks
-                    </span>
-                    <span>
-                      <em>PUT</em> /tasks/:id
-                    </span>
-                  </div>
-                  <small>Python · APIs · Validation</small>
-                </div>
-                <b aria-hidden="true">↔</b>
-                <div>
-                  <span className="layer-no">03 / DATA</span>
-                  <h3>What connects it.</h3>
-                  <div className="data-table">
-                    <span>DATASET</span>
-                    <span>VALUE</span>
-                    <span>sample_a</span>
-                    <span>24</span>
-                    <span>sample_b</span>
-                    <span>18</span>
-                    <span>sample_c</span>
-                    <span>32</span>
-                  </div>
-                  <small>SQL · pandas · DataFrames</small>
-                </div>
-              </div>
-            </div>
-
-            <div className="feature-bottom">
-              <p>From a single request to a useful result.</p>
-              <Link className="feature-link" href="/python-full-stack">
-                Explore Python Full Stack ↗
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="section wrap ai-feature">
-          <div className="feature-row">
-            <div className="feature-copy">
-              <p className="eyebrow">POSSIBILITIES / GEN AI</p>
-              <h2>
-                More context.
-                <br />
-                More thoughtful AI.
-              </h2>
-              <p>
-                Explore how prompts, retrieval and evaluation can turn a model response into a useful
-                application. Learn to question the output, too.
-              </p>
-              <Link className="feature-link" href="/gen-ai">
-                Explore Gen AI ↗
-              </Link>
-            </div>
-
-            <div className="ai-window">
-              <div className="window-head">
-                <span>CONTEXT WORKSPACE</span>
-                <span>ILLUSTRATIVE</span>
-              </div>
-              <div className="document-pills">
-                <span>◈ sample-notes.txt</span>
-                <span>◈ reference.md</span>
-              </div>
-              <div className="chat-question">What are the key ideas in these notes?</div>
-              <div className="chat-response">
-                <span className="ai-spark">✧</span>
-                <div>
-                  <strong>Start with the source.</strong>
-                  <p>
-                    Retrieve relevant context. Generate a draft. Review the answer against the
-                    original material.
-                  </p>
-                  <span className="source-chip">Source references → Human review</span>
-                </div>
-              </div>
-              <div className="ai-loop">
-                <span>Prompt</span>
-                <span>→</span>
-                <span>Retrieve</span>
-                <span>→</span>
-                <span>Evaluate</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="approach section" id="approach">
-          <div className="wrap">
-            <div className="section-head">
-              <div>
-                <p className="eyebrow">02 / FROM IDEAS TO UNDERSTANDING</p>
-                <h2>
-                  Make the connection.
-                  <br />
-                  Then make it your own.
-                </h2>
-              </div>
-              <p>
-                A proposed approach built around understanding concepts, experimenting with code,
-                and bringing the pieces together.
+                Before letting AI generate solutions you cannot verify, learn how code actually works.
+                We train students to reason through problems so you can write, debug, and own your software.
               </p>
             </div>
 
@@ -459,113 +138,533 @@ export default function HomePage() {
                   <i></i>
                   <i></i>
                 </span>
-                <span>your_next_chapter / learning.map</span>
-                <span>PREVIEW</span>
+                <span>codeistaai / methodology.py</span>
+                <span>THINK. CODE. BUILD.</span>
               </div>
               <div className="flow">
                 <div>
-                  <span className="step">01</span>
-                  <h3>Understand</h3>
-                  <p>Find the logic behind the idea. Give each concept a clear place.</p>
-                  <code>question → clarity</code>
+                  <span className="step">STEP 01</span>
+                  <h3>Think</h3>
+                  <p>Build the mental model. Break messy real-world challenges into predictable, logical steps.</p>
+                  <code>problem → algorithm</code>
                 </div>
                 <span aria-hidden="true" className="connector">
                   →
                 </span>
                 <div>
-                  <span className="step">02</span>
-                  <h3>Experiment</h3>
-                  <p>Try a small example. Inspect the result. Ask a better question.</p>
-                  <code>idea → iteration</code>
+                  <span className="step">STEP 02</span>
+                  <h3>Code</h3>
+                  <p>Turn logic into clean, readable code. Practice syntax, functions, files, and debugging.</p>
+                  <code>logic → clean_code.py</code>
                 </div>
                 <span aria-hidden="true" className="connector">
                   →
                 </span>
                 <div>
-                  <span className="step">03</span>
-                  <h3>Create</h3>
-                  <p>Connect what you have learned in a practical project direction.</p>
-                  <code>pieces → possibilities</code>
+                  <span className="step">STEP 03</span>
+                  <h3>Build</h3>
+                  <p>Ship working tools and applications. Use AI as an interactive tutor and code reviewer.</p>
+                  <code>code + ai_partner → tool</code>
                 </div>
+              </div>
+            </div>
+
+            <div className="methodology-note">
+              <strong>The ThinkCode Learning Approach:</strong>
+              <p>
+                We believe algorithmic problem-solving is the durable foundation of engineering. Syntax can be
+                looked up and AI can generate snippets, but understanding how to reason through problems, evaluate outputs,
+                and structure solutions is what creates confident developers.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Single Main Course Comparison Section */}
+        <section className="section wrap" id="courses" aria-labelledby="courses-title">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">02 / CHOOSE YOUR COURSE</p>
+              <h2 id="courses-title">
+                Three focused courses.
+                <br className="hide-mobile" />
+                Clear starting points.
+              </h2>
+            </div>
+            <p>
+              Select the path that matches your current knowledge and goals. Each course emphasizes
+              practical exercises, problem-solving, and building working software.
+            </p>
+          </div>
+
+          <div className="course-grid">
+            {/* Course 1: Python */}
+            <article className="course-card">
+              <div className="card-top">
+                <span className="card-phase">01 / FOUNDATIONS</span>
+                <span className="level-badge">Beginner</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                py_
+              </div>
+              <div className="card-header">
+                <h3>Python</h3>
+                <p className="card-audience">
+                  For beginners and students starting from scratch with no prior coding experience.
+                </p>
+              </div>
+
+              <div className="card-body">
+                <p className="outcomes-heading">What you will learn &amp; build:</p>
+                <ul className="outcomes-list" aria-label="Python learning outcomes">
+                  <li>Break everyday problems into clear, logical steps before writing syntax</li>
+                  <li>Write clean, modular code with variables, loops, functions, and data structures</li>
+                  <li>Build practical automation scripts for file processing, data tasks, and CLI tools</li>
+                </ul>
+              </div>
+
+              <div className="card-bottom">
+                <div className="card-meta">
+                  <div className="meta-row">
+                    <span className="meta-label">Prerequisites:</span>
+                    <span className="meta-value">None</span>
+                  </div>
+                  <div className="meta-row">
+                    <span className="meta-label">Duration:</span>
+                    <span className="meta-value">To be confirmed (Ask upon enquiry)</span>
+                  </div>
+                </div>
+                <Link className="course-card-action" href="/python">
+                  View course <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </article>
+
+            {/* Course 2: Python Full Stack */}
+            <article className="course-card">
+              <div className="card-top">
+                <span className="card-phase">02 / APPLICATIONS</span>
+                <span className="level-badge">Intermediate</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                web_
+              </div>
+              <div className="card-header">
+                <h3>Python Full Stack</h3>
+                <p className="card-audience">
+                  For learners with basic coding knowledge ready to ship complete web applications.
+                </p>
+              </div>
+
+              <div className="card-body">
+                <p className="outcomes-heading">What you will learn &amp; build:</p>
+                <ul className="outcomes-list" aria-label="Python Full Stack learning outcomes">
+                  <li>Connect browser user interfaces to robust Python API backend services</li>
+                  <li>Model, store, and query relational data using SQL and database persistence</li>
+                  <li>Build and deploy integrated, multi-tier web applications with input validation</li>
+                </ul>
+              </div>
+
+              <div className="card-bottom">
+                <div className="card-meta">
+                  <div className="meta-row">
+                    <span className="meta-label">Prerequisites:</span>
+                    <span className="meta-value">Basic Python recommended</span>
+                  </div>
+                  <div className="meta-row">
+                    <span className="meta-label">Duration:</span>
+                    <span className="meta-value">To be confirmed (Ask upon enquiry)</span>
+                  </div>
+                </div>
+                <Link className="course-card-action" href="/python-full-stack">
+                  View course <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </article>
+
+            {/* Course 3: Gen AI */}
+            <article className="course-card">
+              <div className="card-top">
+                <span className="card-phase">03 / POSSIBILITIES</span>
+                <span className="level-badge">Applied</span>
+              </div>
+              <div aria-hidden="true" className="course-symbol">
+                ai_
+              </div>
+              <div className="card-header">
+                <h3>Gen AI</h3>
+                <p className="card-audience">
+                  For developers and learners looking to build reliable, grounded AI applications.
+                </p>
+              </div>
+
+              <div className="card-body">
+                <p className="outcomes-heading">What you will learn &amp; build:</p>
+                <ul className="outcomes-list" aria-label="Gen AI learning outcomes">
+                  <li>Engineer structured prompts and evaluate model outputs for reliability</li>
+                  <li>Ground generative responses in private documents using vector retrieval (RAG)</li>
+                  <li>Build working AI tools with source attribution, trace logs, and fallback rules</li>
+                </ul>
+              </div>
+
+              <div className="card-bottom">
+                <div className="card-meta">
+                  <div className="meta-row">
+                    <span className="meta-label">Prerequisites:</span>
+                    <span className="meta-value">Python basics recommended</span>
+                  </div>
+                  <div className="meta-row">
+                    <span className="meta-label">Duration:</span>
+                    <span className="meta-value">To be confirmed (Ask upon enquiry)</span>
+                  </div>
+                </div>
+                <Link className="course-card-action" href="/gen-ai">
+                  View course <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        {/* Practical Projects & Capabilities Showcases */}
+        <section className="course-deep section wrap" aria-labelledby="showcase-title">
+          <div className="feature-row">
+            <div className="feature-copy">
+              <p className="eyebrow">FOUNDATIONS IN ACTION / PYTHON</p>
+              <h2 id="showcase-title">
+                Logic first.
+                <br className="hide-mobile" />
+                Real understanding.
+              </h2>
+              <p>
+                Start with the reasoning behind the code. Explore variables, control flow, functions,
+                and files—then connect them in an automated, useful script.
+              </p>
+              <Link className="feature-link" href="/python">
+                View Python course <span aria-hidden="true">→</span>
+              </Link>
+              <div className="mini-tags">
+                <span>Understand the logic</span>
+                <span>Learn by trying</span>
+              </div>
+            </div>
+
+            <div className="code-window">
+              <div className="window-head">
+                <span className="window-dots">● ● ●</span>
+                <span>organize_files.py</span>
+                <span>PYTHON</span>
+              </div>
+              <div className="code-lines">
+                <span className="code-comment"># Turn logic into an automation script</span>
+                <br />
+                <span className="code-purple">import</span> os, shutil
+                <br />
+                <br />
+                <span className="code-purple">def</span> organize_folder(path):
+                <br />
+                &nbsp;&nbsp;<span className="code-purple">for</span> file <span className="code-purple">in</span> os.listdir(path):
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-purple">if</span> file.endswith(&quot;.csv&quot;):
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shutil.move(file, &quot;datasets/&quot;)
+              </div>
+              <div className="code-output">
+                <span>OUTPUT / REAL AUTOMATION</span>
+                <p>
+                  › Sorted 18 data files into /datasets.<i></i>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="feature-pair">
+            <div>
+              <h3>Start with a problem.</h3>
+              <p>Turn challenges into small, clear steps you can reason through before writing code.</p>
+              <div className="mini-flow">
+                <span>Problem</span>
+                <b aria-hidden="true">→</b>
+                <span>Logic</span>
+                <b aria-hidden="true">→</b>
+                <span>Code</span>
+              </div>
+            </div>
+            <div>
+              <h3>Iterate and verify.</h3>
+              <p>Read program output, diagnose bugs, and improve the solution systematically.</p>
+              <div className="iteration">
+                <span>draft.py</span>
+                <div className="iteration-line" aria-hidden="true"></div>
+                <span className="iteration-end">verified_app.py →</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section wrap">
-          <div className="direction">
-            <div>
-              <p className="eyebrow">03 / FOLLOW YOUR CURIOSITY</p>
-              <h2>
-                Where do you
-                <br />
-                want to begin?
-              </h2>
+        {/* Python Full Stack Architecture Showcase */}
+        <section className="stack-section section" aria-labelledby="stack-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <p className="eyebrow">CONNECTIONS IN ACTION / PYTHON FULL STACK</p>
+                <h2 id="stack-title">
+                  One application.
+                  <br className="hide-mobile" />
+                  Every layer connected.
+                </h2>
+              </div>
               <p>
-                You don’t need the whole journey mapped out. Start with the kind of work you want to
-                explore.
+                Experience how frontend interfaces, Python APIs, and database tables interact
+                to form complete, responsive web applications.
               </p>
             </div>
 
-            <div className="path-list">
-              <Link href="/python">
-                <span>
-                  &ldquo;I want to understand code.&rdquo;
-                  <small>Explore Python foundations</small>
-                </span>
-                <b aria-hidden="true">↗</b>
-              </Link>
-              <Link href="/python-full-stack">
-                <span>
-                  &ldquo;I want to build an application.&rdquo;
-                  <small>Explore Python Full Stack</small>
-                </span>
-                <b aria-hidden="true">↗</b>
-              </Link>
-              <Link href="/gen-ai">
-                <span>
-                  &ldquo;I want to experiment with AI.&rdquo;
-                  <small>Explore Gen AI</small>
-                </span>
-                <b aria-hidden="true">↗</b>
+            <div className="stack-board">
+              <div className="window-head">
+                <span>APPLICATION ARCHITECTURE</span>
+                <span>CONNECTED LAYERS</span>
+              </div>
+              <div className="stack-layers">
+                <div>
+                  <span className="layer-no">01 / INTERFACE</span>
+                  <h3>What users see.</h3>
+                  <div className="mini-browser">
+                    <div></div>
+                    <p></p>
+                    <p></p>
+                    <span className="mock-button">Submit Form</span>
+                  </div>
+                  <small>HTML · CSS · JavaScript</small>
+                </div>
+                <b aria-hidden="true">↔</b>
+                <div>
+                  <span className="layer-no">02 / BACKEND</span>
+                  <h3>How it processes.</h3>
+                  <div className="api-lines">
+                    <span>
+                      <em>GET</em> /api/items
+                    </span>
+                    <span>
+                      <em>POST</em> /api/submit
+                    </span>
+                    <span>
+                      <em>PUT</em> /api/items/:id
+                    </span>
+                  </div>
+                  <small>Python · APIs · Input Validation</small>
+                </div>
+                <b aria-hidden="true">↔</b>
+                <div>
+                  <span className="layer-no">03 / DATA</span>
+                  <h3>What it stores.</h3>
+                  <div className="data-table">
+                    <span>RECORD</span>
+                    <span>STATUS</span>
+                    <span>order_101</span>
+                    <span>active</span>
+                    <span>order_102</span>
+                    <span>verified</span>
+                    <span>order_103</span>
+                    <span>completed</span>
+                  </div>
+                  <small>SQL · pandas · Relational Data</small>
+                </div>
+              </div>
+            </div>
+
+            <div className="feature-bottom">
+              <p>From an initial HTTP request to reliable database storage.</p>
+              <Link className="feature-link" href="/python-full-stack">
+                View Python Full Stack course <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="wrap closing">
-          <div>
-            <p className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
-            <h2>
-              One small step.
-              <br />
-              A whole new possibility.
-            </h2>
+        {/* Gen AI Showcase */}
+        <section className="section wrap ai-feature" aria-labelledby="ai-showcase-title">
+          <div className="feature-row">
+            <div className="feature-copy">
+              <p className="eyebrow">APPLIED AI IN ACTION / GEN AI</p>
+              <h2 id="ai-showcase-title">
+                Context-grounded.
+                <br className="hide-mobile" />
+                Thoughtful AI systems.
+              </h2>
+              <p>
+                Explore how prompt engineering, vector retrieval (RAG), and evaluation turn raw model outputs
+                into reliable, traceable applications. Learn how to identify and prevent hallucinations.
+              </p>
+              <Link className="feature-link" href="/gen-ai">
+                View Gen AI course <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+
+            <div className="ai-window">
+              <div className="window-head">
+                <span>RETRIEVAL-AUGMENTED CONTEXT WORKSPACE</span>
+                <span>SOURCE GROUNDING</span>
+              </div>
+              <div className="document-pills">
+                <span>◈ syllabus-guide.pdf</span>
+                <span>◈ student-notes.md</span>
+              </div>
+              <div className="chat-question">How does CodeistaAI use AI in the classroom?</div>
+              <div className="chat-response">
+                <span className="ai-spark" aria-hidden="true">✧</span>
+                <div>
+                  <strong>Grounded in verified context:</strong>
+                  <p>
+                    Relevant notes are retrieved and fed to the model. The response is synthesized
+                    with source citations and verified by the student.
+                  </p>
+                  <span className="source-chip">Document context → Retrieval → Human review</span>
+                </div>
+              </div>
+              <div className="ai-loop">
+                <span>Prompt</span>
+                <span aria-hidden="true">→</span>
+                <span>Retrieve</span>
+                <span aria-hidden="true">→</span>
+                <span>Evaluate</span>
+              </div>
+            </div>
           </div>
-          <a className="button" href="#courses">
-            Choose your course <span aria-hidden="true">↗</span>
-          </a>
+        </section>
+
+        {/* Questions from Students & Parents (FAQ) */}
+        <section className="section wrap faq-section" id="faq" aria-labelledby="faq-title">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">04 / QUESTIONS &amp; CLARITY</p>
+              <h2 id="faq-title">
+                Common questions from
+                <br className="hide-mobile" />
+                students and parents.
+              </h2>
+            </div>
+            <p>
+              Clear, transparent answers about course prerequisites, our teaching philosophy,
+              and what happens when you enquire.
+            </p>
+          </div>
+
+          <div className="faq-list">
+            <details className="faq-item" open>
+              <summary>
+                Do I or my child need prior coding experience?
+                <span className="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Our <strong>Python</strong> course is specifically designed for complete beginners and students
+                with zero prior experience. We start with fundamental computational logic before writing syntax.
+                Our <strong>Python Full Stack</strong> and <strong>Gen AI</strong> courses assume familiarity with
+                basic programming logic or introductory Python concepts.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary>
+                Why teach programming logic before AI tools?
+                <span className="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                AI coding tools can generate snippets quickly, but if a student does not understand programming
+                logic, they cannot spot mistakes, debug errors, or verify whether code is secure and efficient.
+                We teach problem-solving logic first so learners have the knowledge to direct and evaluate AI intelligently.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary>
+                How is AI used during the learning process?
+                <span className="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                AI is treated as an interactive learning partner—explaining cryptic compiler errors, providing
+                practice problems, and reviewing student code. It is never used as a replacement for human reasoning
+                or an automatic assignment generator.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary>
+                How long do the courses take and what is the schedule?
+                <span className="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Course durations, delivery formats (live interactive sessions, practice hours), and upcoming batch
+                start dates are currently being finalized for the next cohort. Submitting a course enquiry allows
+                our team to provide you with the most up-to-date schedule and options.
+              </p>
+            </details>
+
+            <details className="faq-item">
+              <summary>
+                What happens after I submit an enquiry?
+                <span className="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Submitting an enquiry connects you directly with the CodeistaAI team. We share full syllabus details,
+                answer specific questions about batch timings and prerequisites, and help you select the most suitable
+                course for your background.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        {/* Closing Action Section */}
+        <section className="wrap closing" aria-labelledby="closing-title">
+          <div>
+            <p className="eyebrow">GET STARTED</p>
+            <h2 id="closing-title">
+              Ready to build
+              <br className="hide-mobile" />
+              genuine coding skills?
+            </h2>
+            <p className="closing-sub">
+              Compare our three learning tracks to find your starting point—from
+              foundational programming logic to full stack development and practical AI tools.
+            </p>
+          </div>
+          <div className="closing-buttons">
+            <a className="button" href="#courses">
+              Explore courses <span aria-hidden="true">↑</span>
+            </a>
+            <a className="button button-outline" href="#approach">
+              Our approach <span aria-hidden="true">↑</span>
+            </a>
+          </div>
         </section>
       </main>
 
-      <footer className="wrap">
-        <div>
-          <Link href="/" aria-label="CodeistaAI home">
-            <Image
-              src="/logo-dark.svg"
-              alt="CodeistaAI"
-              width={168}
-              height={32}
-            />
-          </Link>
-          <p>Curiosity, written in code.</p>
+      {/* Footer */}
+      <footer className="site-footer">
+        <div className="wrap footer-main">
+          <div className="footer-brand">
+            <Link href="/" aria-label="CodeistaAI home">
+              <Image
+                src="/logo-dark.svg"
+                alt="CodeistaAI"
+                width={168}
+                height={32}
+              />
+            </Link>
+            <p className="footer-tagline">
+              Think. Code. Build. — Programming logic first, AI as a tool.
+            </p>
+          </div>
+          <nav className="footer-nav" aria-label="Course pages">
+            <Link href="/python">Python</Link>
+            <Link href="/python-full-stack">Python Full Stack</Link>
+            <Link href="/gen-ai">Gen AI</Link>
+          </nav>
         </div>
-        <nav aria-label="Course pages">
-          <Link href="/python">Python ↗</Link>
-          <Link href="/python-full-stack">Python Full Stack ↗</Link>
-          <Link href="/gen-ai">Gen AI ↗</Link>
-        </nav>
-        <p className="legal">CodeistaAI · Contact and legal details to be provided.</p>
+        <div className="wrap footer-bottom">
+          <span>CodeistaAI · Course details, prerequisites, and schedules subject to confirmation.</span>
+          <span>© {new Date().getFullYear()} CodeistaAI. All rights reserved.</span>
+        </div>
       </footer>
     </div>
   );

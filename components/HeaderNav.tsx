@@ -218,7 +218,7 @@ export default function HeaderNav({
             {coursesDropdown}
             <a href="#approach">Our approach</a>
             <a className="button small" href="#courses">
-              Find your path <span aria-hidden="true">↗</span>
+              Explore courses <span aria-hidden="true">↓</span>
             </a>
           </nav>
         </div>
@@ -275,7 +275,7 @@ export default function HeaderNav({
             aria-controls="enquiry-dialog"
             onClick={handleEnquireClick}
           >
-            Explore {courseName} <span aria-hidden="true">↗</span>
+            Enquire about course
           </a>
         </nav>
       </div>
